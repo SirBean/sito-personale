@@ -38,23 +38,6 @@
     .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; letter-spacing: -.04em; margin: 0 0 8px; line-height: 1.05; }
     .page-header p { font-size: .94rem; color: var(--muted); margin: 0; }
 
-    /* FILTER BAR */
-    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; padding: 28px 0; border-bottom: 1px solid var(--border); }
-    .filter-pill {
-      font-family: inherit;
-      font-size: .8rem;
-      font-weight: 500;
-      color: var(--muted);
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-btn);
-      padding: 6px 14px;
-      cursor: pointer;
-      transition: color .15s, background .15s, border-color .15s;
-    }
-    .filter-pill:hover { color: var(--fg); background: var(--surface); border-color: var(--border-strong); }
-    .filter-pill.active { color: var(--fg); background: var(--fg); color: var(--bg); border-color: var(--fg); }
-
     /* PROJECTS GRID — 3 col desktop, 2 col tablet, 1 col mobile */
     .all-grid {
       display: grid;
@@ -87,11 +70,9 @@
     .p-card:hover .p-cover::after { opacity:1; }
 
     .p-body { padding: 16px 16px 18px; flex: 1; display: flex; flex-direction: column; }
-    .p-cat { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 6px; }
     .p-title { font-size: .96rem; font-weight: 600; letter-spacing: -.01em; margin: 0 0 6px; }
-    .p-desc { font-size: .82rem; color: var(--muted); margin: 0 0 14px; flex: 1; line-height: 1.55; }
-    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .tag { font-size: .68rem; font-weight: 500; color: var(--muted); padding: 2px 8px; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); }
+    .p-desc { font-size: .82rem; color: var(--muted); margin: 0 0 10px; flex: 1; line-height: 1.55; }
+    .p-date { font-size: .74rem; color: var(--muted-2); }
 
     /* COMING SOON card style */
     .p-card.placeholder { opacity: .5; pointer-events: none; }
@@ -139,90 +120,44 @@
         <p>Photography · Video · Design · Writing — Parma, Italy</p>
       </div>
 
-      <!-- Filter bar -->
-      <div class="filter-bar" role="group" aria-label="Filter projects by category">
-        <button class="filter-pill active" data-filter="all">All</button>
-        <button class="filter-pill" data-filter="photography">Photography</button>
-        <button class="filter-pill" data-filter="video">Video</button>
-        <button class="filter-pill" data-filter="writing">Writing</button>
-        <button class="filter-pill" data-filter="design">Design</button>
-      </div>
-
       <!-- Projects grid -->
       <div class="all-grid" id="grid">
 
-        <a class="p-card" href="meravigliosa-biblioteca.html" data-categories="photography documentary">
+        <a class="p-card" href="meravigliosa-biblioteca.html">
           <div class="p-cover"></div>
           <div class="p-body">
-            <p class="p-cat">Photography · Documentary</p>
             <h2 class="p-title">Meravigliosa Biblioteca</h2>
             <p class="p-desc">Documentary photography project exploring the quiet intimacy of a historic library in Parma.</p>
-            <div class="tags">
-              <span class="tag">#Photography</span>
-              <span class="tag">#Documentary</span>
-            </div>
+            <span class="p-date">2024</span>
           </div>
         </a>
 
-        <a class="p-card" href="how-i-see-colors.html" data-categories="photography art">
+        <a class="p-card" href="how-i-see-colors.html">
           <div class="p-cover"></div>
           <div class="p-body">
-            <p class="p-cat">Photography · Art</p>
             <h2 class="p-title">How I See Colors</h2>
             <p class="p-desc">A personal visual essay on color perception and its emotional resonance in everyday photography.</p>
-            <div class="tags">
-              <span class="tag">#Photography</span>
-              <span class="tag">#Art</span>
-            </div>
+            <span class="p-date">2023 – 2024</span>
           </div>
         </a>
 
-        <a class="p-card" href="design-week-2025.html" data-categories="video events">
+        <a class="p-card" href="design-week-2025.html">
           <div class="p-cover"></div>
           <div class="p-body">
-            <p class="p-cat">Video · Events</p>
             <h2 class="p-title">Design Week 2025</h2>
             <p class="p-desc">Sponsored creator coverage — video production, event documentation and short-form content.</p>
-            <div class="tags">
-              <span class="tag">#Video</span>
-              <span class="tag">#Events</span>
-            </div>
+            <span class="p-date">2025</span>
           </div>
         </a>
 
-        <a class="p-card" href="the-creative-lens.html" data-categories="writing newsletter">
+        <a class="p-card" href="the-creative-lens.html">
           <div class="p-cover"></div>
           <div class="p-body">
-            <p class="p-cat">Writing · Newsletter</p>
             <h2 class="p-title">The Creative Lens</h2>
             <p class="p-desc">Weekly newsletter at the intersection of photography, visual culture, and the creative process.</p>
-            <div class="tags">
-              <span class="tag">#Writing</span>
-              <span class="tag">#Substack</span>
-            </div>
+            <span class="p-date">2023 – presente</span>
           </div>
         </a>
-
-        <!-- Placeholder cards — remove / replace when you have more projects -->
-        <div class="p-card placeholder" data-categories="design">
-          <div class="p-cover"></div>
-          <div class="p-body">
-            <p class="p-cat">Design · Brand</p>
-            <h2 class="p-title">[Project coming soon]</h2>
-            <p class="p-desc">Brand design project — placeholder.</p>
-            <div class="tags"><span class="tag">#Design</span></div>
-          </div>
-        </div>
-
-        <div class="p-card placeholder" data-categories="video">
-          <div class="p-cover"></div>
-          <div class="p-body">
-            <p class="p-cat">Video · Short Film</p>
-            <h2 class="p-title">[Project coming soon]</h2>
-            <p class="p-desc">Short film — placeholder.</p>
-            <div class="tags"><span class="tag">#Video</span></div>
-          </div>
-        </div>
 
       </div><!-- /grid -->
 
@@ -239,42 +174,5 @@
     </div>
   </footer>
 
-  <script>
-    var pills = document.querySelectorAll('.filter-pill');
-    var cards = document.querySelectorAll('.all-grid .p-card');
-
-    pills.forEach(function(pill) {
-      pill.addEventListener('click', function() {
-        var filter = this.dataset.filter;
-
-        // Update active pill
-        pills.forEach(function(p) { p.classList.remove('active'); });
-        this.classList.add('active');
-
-        // Show/hide cards
-        var visible = 0;
-        cards.forEach(function(card) {
-          var cats = card.dataset.categories || '';
-          var show = filter === 'all' || cats.indexOf(filter) !== -1;
-          card.classList.toggle('hidden', !show);
-          if (show) visible++;
-        });
-
-        // Empty state
-        var empty = document.getElementById('empty-state');
-        if (visible === 0) {
-          if (!empty) {
-            empty = document.createElement('p');
-            empty.id = 'empty-state';
-            empty.className = 'empty-state';
-            empty.textContent = 'No projects in this category yet.';
-            document.getElementById('grid').appendChild(empty);
-          }
-        } else if (empty) {
-          empty.remove();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
