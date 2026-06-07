@@ -174,7 +174,7 @@
     .link-pill svg { flex: 0 0 auto; }
 
     /* ── YouTube embed — clean, no border ── */
-    .yt-section { margin-top: 24px; }
+    .yt-section { margin-top: 40px; }
     .yt-eyebrow {
       display: flex;
       align-items: center;
@@ -220,25 +220,23 @@
     .substack-frame iframe { display: block; width: 100% !important; border: none !important; }
 
     /* ═══════════════════════════════════════════
-       SCROLL DIVIDER
+       SCROLL HINT
     ═══════════════════════════════════════════ */
-    .scroll-divider {
+    .scroll-hint {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      padding: 14px 24px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      cursor: pointer;
-      color: var(--muted);
-      transition: background .15s, color .15s;
+      gap: 7px;
+      padding: 22px 20px 26px;
+      border-top: 1px solid var(--border);
+      color: var(--muted-2);
+      transition: color .15s;
+      text-decoration: none;
     }
-    .scroll-divider:hover { background: #f0f0f1; color: var(--fg); }
-    .sd-left { display: flex; align-items: center; gap: 10px; }
-    .sd-label { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
-    .sd-count { font-size: .72rem; font-weight: 500; color: var(--muted-2); background: var(--border); padding: 1px 7px; border-radius: 999px; }
-    .sd-arrow { display: flex; align-items: center; animation: sd-bounce 1.8s ease-in-out infinite; }
-    @keyframes sd-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+    .scroll-hint:hover { color: var(--muted); }
+    .scroll-hint span { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .scroll-hint svg { animation: sh-bounce 1.8s ease-in-out infinite; }
+    @keyframes sh-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
 
     /* ═══════════════════════════════════════════
        PROJECTS
@@ -367,7 +365,7 @@
         <p class="substack-eyebrow">The Creative Lens</p>
         <div class="substack-frame">
           <iframe
-            src="https://placeholder.substack.com/embed"
+            src="https://giannattasiomattia.substack.com/embed"
             width="100%"
             height="320"
             frameborder="0"
@@ -380,17 +378,9 @@
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════
-       SCROLL DIVIDER
-  ═══════════════════════════════════════════ -->
-  <a class="scroll-divider" href="#projects" aria-label="Scroll to featured work">
-    <div class="sd-left">
-      <span class="sd-label">Featured Work</span>
-      <span class="sd-count">4 projects</span>
-    </div>
-    <span class="sd-arrow" aria-hidden="true">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-    </span>
+  <a class="scroll-hint" href="#projects" aria-label="Scroll to see all work">
+    <span>All Work</span>
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </a>
 
   <main>
