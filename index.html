@@ -89,21 +89,6 @@
       letter-spacing: -.01em;
       white-space: nowrap;
     }
-    .nav-proj-links {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-    .nav-proj-link {
-      font-size: .81rem;
-      font-weight: 500;
-      color: var(--muted);
-      padding: 5px 9px;
-      border-radius: 6px;
-      white-space: nowrap;
-      transition: color .15s, background .15s;
-    }
-    .nav-proj-link:hover { color: var(--fg); background: var(--surface); }
     .nav-all {
       font-size: .81rem;
       font-weight: 500;
@@ -111,15 +96,10 @@
       padding: 5px 11px;
       border: 1px solid var(--border);
       border-radius: 6px;
-      margin-left: 6px;
       white-space: nowrap;
       transition: background .15s, border-color .15s;
     }
     .nav-all:hover { background: var(--surface); border-color: var(--border-strong); }
-
-    @media (max-width: 700px) {
-      .nav-proj-links { display: none; }
-    }
 
     /* ═══════════════════════════════════════════
        HERO  (link-in-bio)
@@ -300,13 +280,7 @@
   <nav class="site-nav" aria-label="Site navigation">
     <div class="site-nav-inner">
       <a href="#top" class="nav-brand">Mattia Giannattasio</a>
-      <div class="nav-proj-links">
-        <a href="meravigliosa-biblioteca.html" class="nav-proj-link">Biblioteca</a>
-        <a href="how-i-see-colors.html" class="nav-proj-link">Colors</a>
-        <a href="design-week-2025.html" class="nav-proj-link">Design Week</a>
-        <a href="the-creative-lens.html" class="nav-proj-link">Lens</a>
-        <a href="projects.html" class="nav-all">All Work →</a>
-      </div>
+      <a href="projects.html" class="nav-all">All Work →</a>
     </div>
   </nav>
 
@@ -361,7 +335,7 @@
       <!-- Substack official subscribe embed -->
       <!-- Replace "placeholder" with your actual Substack subdomain -->
       <div class="substack-section">
-        <p class="substack-eyebrow">The Creative Lens</p>
+        <p class="substack-eyebrow">Newsletter</p>
         <div class="substack-frame">
           <iframe
             src="https://giannattasiomattia.substack.com/embed"
