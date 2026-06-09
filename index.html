@@ -229,8 +229,6 @@
     ═══════════════════════════════════════════ */
     section { padding: 52px 0; }
     .section-label { font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 24px; }
-    .projects-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 28px; }
-    .projects-header .section-label { margin: 0; }
     .see-all { font-size: .8rem; font-weight: 500; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color .15s, border-color .15s; }
     .see-all:hover { color: var(--fg); border-color: var(--fg); }
 
@@ -238,16 +236,14 @@
 
     .card { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg); box-shadow: var(--card-shadow); transition: border-color .15s, transform .15s; }
     .card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
-    .card-featured { grid-column: 1 / -1; }
-    .card-featured .card-cover { aspect-ratio: 21/9; }
     .card-cover { aspect-ratio: 16/9; background: repeating-linear-gradient(-45deg,#f4f4f5,#f4f4f5 12px,#efeff1 12px,#efeff1 24px); border-bottom: 1px solid var(--border); position: relative; }
     .card-cover::after { content:"↗"; position:absolute; top:12px; right:14px; font-size:.75rem; color:var(--muted-2); opacity:0; transition:opacity .15s; }
     .card:hover .card-cover::after { opacity:1; }
     .card-body { padding: 16px 18px 20px; }
     .card-title { font-size: .98rem; font-weight: 600; letter-spacing: -.01em; margin: 0 0 4px; }
-    .card-featured .card-title { font-size: 1.1rem; }
     .card-desc { font-size: .84rem; color: var(--muted); margin: 0 0 13px; }
     .card-date { font-size: .76rem; color: var(--muted-2); margin-top: 10px; }
+    .projects-cta { text-align: center; margin-top: 32px; }
 
     /* ═══════════════════════════════════════════
        CLIENTS
@@ -268,8 +264,6 @@
     ═══════════════════════════════════════════ */
     @media (max-width: 680px) {
       .projects-grid { grid-template-columns: 1fr; }
-      .card-featured { grid-column: 1; }
-      .card-featured .card-cover { aspect-ratio: 16/9; }
       section { padding: 40px 0; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -365,14 +359,20 @@
     ═══════════════════════════════════════════ -->
     <section id="projects">
       <div class="wrap">
-        <div class="projects-header">
-          <p class="section-label">Featured Work</p>
-          <a class="see-all" href="projects.html">All projects ↗</a>
-        </div>
+        <p class="section-label">Featured</p>
 
         <div class="projects-grid">
 
-          <a class="card card-featured" href="meravigliosa-biblioteca.html" aria-label="Meravigliosa Biblioteca">
+          <a class="card" href="design-week-2025.html" aria-label="Design Week 2025">
+            <div class="card-cover" aria-hidden="true"></div>
+            <div class="card-body">
+              <h2 class="card-title">Design Week 2025</h2>
+              <p class="card-desc">Sponsored creator coverage</p>
+              <span class="card-date">2025</span>
+            </div>
+          </a>
+
+          <a class="card" href="meravigliosa-biblioteca.html" aria-label="Meravigliosa Biblioteca">
             <div class="card-cover" aria-hidden="true"></div>
             <div class="card-body">
               <h2 class="card-title">Meravigliosa Biblioteca</h2>
@@ -384,30 +384,25 @@
           <a class="card" href="how-i-see-colors.html" aria-label="How I See Colors">
             <div class="card-cover" aria-hidden="true"></div>
             <div class="card-body">
-              <h3 class="card-title">How I See Colors</h3>
+              <h2 class="card-title">How I See Colors</h2>
               <p class="card-desc">Visual storytelling series</p>
               <span class="card-date">2023 – 2024</span>
-            </div>
-          </a>
-
-          <a class="card" href="design-week-2025.html" aria-label="Design Week 2025">
-            <div class="card-cover" aria-hidden="true"></div>
-            <div class="card-body">
-              <h3 class="card-title">Design Week 2025</h3>
-              <p class="card-desc">Sponsored creator coverage</p>
-              <span class="card-date">2025</span>
             </div>
           </a>
 
           <a class="card" href="the-creative-lens.html" aria-label="The Creative Lens">
             <div class="card-cover" aria-hidden="true"></div>
             <div class="card-body">
-              <h3 class="card-title">The Creative Lens</h3>
+              <h2 class="card-title">The Creative Lens</h2>
               <p class="card-desc">Weekly newsletter on creativity</p>
               <span class="card-date">2023 – presente</span>
             </div>
           </a>
 
+        </div>
+
+        <div class="projects-cta">
+          <a class="see-all" href="projects.html">All projects ↗</a>
         </div>
       </div>
     </section>
