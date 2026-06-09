@@ -159,51 +159,32 @@
     .link-pill.primary:hover { background: #18181b; }
     .link-pill svg { flex: 0 0 auto; }
 
-    /* ── YouTube embed — clean, no border ── */
-    .yt-section { margin-top: 40px; }
-    .yt-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      margin: 0 0 10px;
-      text-align: left;
-    }
-    .yt-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    /* ── Newsletter box ── */
+    .nl-section { margin-top: 32px; text-align: left; }
+    .nl-eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 10px; }
+    .nl-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 20px 18px; }
+    .nl-title { font-size: .96rem; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; }
+    .nl-desc { font-size: .82rem; color: var(--muted); margin: 0 0 16px; line-height: 1.6; }
+    .nl-form { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .nl-input { flex: 1; min-width: 140px; padding: 9px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-btn); font-family: inherit; font-size: .84rem; color: var(--fg); outline: none; transition: border-color .15s; }
+    .nl-input:focus { border-color: var(--border-strong); }
+    .nl-input::placeholder { color: var(--muted-2); }
+    .nl-btn { padding: 9px 16px; background: var(--fg); color: var(--bg); border: none; border-radius: var(--radius-btn); font-family: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background .15s; }
+    .nl-btn:hover { background: #18181b; }
+    .nl-prev { font-size: .82rem; font-weight: 600; color: var(--fg); display: inline-block; }
+    .nl-prev:hover { color: var(--muted); }
+
+    /* ── YouTube embed ── */
+    .yt-section { margin-top: 20px; }
+    .yt-eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 10px; text-align: left; }
     .yt-frame {
       aspect-ratio: 16/9;
       border-radius: var(--radius);
       overflow: hidden;
       background: #0a0a0a;
-      /* subtle shadow instead of border — cleaner look */
       box-shadow: 0 2px 16px rgba(0,0,0,.14);
     }
     .yt-frame iframe { display: block; width: 100%; height: 100%; border: none; }
-
-    /* ── Substack subscribe embed ── */
-    .substack-section { margin-top: 20px; text-align: left; }
-    .substack-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .68rem;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted-2);
-      margin: 0 0 10px;
-    }
-    .substack-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .substack-frame {
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .substack-frame iframe { display: block; width: 100% !important; border: none !important; }
 
     /* ═══════════════════════════════════════════
        SCROLL HINT
@@ -300,7 +281,7 @@
       </div>
 
       <h1>Mattia Giannattasio</h1>
-      <p class="tagline">Photographer · Videomaker · Designer</p>
+      <p class="tagline">Designer · Filmmaker · Photographer</p>
       <p class="location">Parma, Italy</p>
 
       <nav class="links" aria-label="Primary links">
@@ -314,7 +295,21 @@
         </a>
       </nav>
 
-      <!-- YouTube last video — clean borderless embed -->
+      <!-- Newsletter — custom subscription box -->
+      <div class="nl-section">
+        <p class="nl-eyebrow">Newsletter</p>
+        <div class="nl-box">
+          <p class="nl-title">The Creative Lens</p>
+          <p class="nl-desc">A monthly newsletter on photography, visual culture, and the creative process. I don't share this stuff anywhere else.</p>
+          <form class="nl-form" action="https://giannattasiomattia.substack.com/api/v1/free" method="post" target="_blank">
+            <input class="nl-input" type="email" name="email" placeholder="Enter your email address" required />
+            <button class="nl-btn" type="submit">Subscribe to The Creative Lens</button>
+          </form>
+          <a class="nl-prev" href="https://giannattasiomattia.substack.com" target="_blank" rel="noopener noreferrer">Read previous newsletters →</a>
+        </div>
+      </div>
+
+      <!-- YouTube last video -->
       <div class="yt-section">
         <p class="yt-eyebrow">Latest Video</p>
         <div class="yt-frame">
@@ -324,22 +319,6 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
             loading="lazy">
-          </iframe>
-        </div>
-      </div>
-
-      <!-- Substack official subscribe embed -->
-      <!-- Replace "placeholder" with your actual Substack subdomain -->
-      <div class="substack-section">
-        <p class="substack-eyebrow">Newsletter</p>
-        <div class="substack-frame">
-          <iframe
-            src="https://giannattasiomattia.substack.com/embed"
-            width="100%"
-            height="320"
-            frameborder="0"
-            scrolling="no"
-            title="Subscribe to The Creative Lens on Substack">
           </iframe>
         </div>
       </div>
