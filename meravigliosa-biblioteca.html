@@ -51,12 +51,19 @@
     .inline-img .img-ph.wide { aspect-ratio: 16/9; }
     .inline-img-grid .img-ph { aspect-ratio: 3/2; }
 
-    /* NEXT PROJECT */
-    .next-project { background: var(--surface); }
-    .next-project a { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 96px 20px; text-align: center; transition: background .15s; }
-    .next-project a:hover { background: #efefef; }
-    .next-label { font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); }
-    .next-title { font-size: clamp(1.3rem, 4vw, 2rem); font-weight: 600; letter-spacing: -.025em; }
+    /* KEEP READING */
+    .keep-reading { padding: 60px 0 120px; border-top: 1px solid var(--border); }
+    .kr-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+    .kr-label { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0; }
+    .kr-all { font-size: .82rem; font-weight: 500; color: var(--muted); letter-spacing: -0.01em; transition: color .15s; }
+    .kr-all:hover { color: var(--fg); }
+    .kr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 24px; }
+    .kr-card { display: flex; flex-direction: column; transition: transform .2s ease-out; }
+    .kr-card:hover { transform: translateY(-3px); }
+    .kr-cover { aspect-ratio: 1/1; background: repeating-linear-gradient(-45deg, #f4f4f5, #f4f4f5 12px, #efeff1 12px, #efeff1 24px); border-radius: 6px; overflow: hidden; margin-bottom: 16px; }
+    .kr-title { font-size: .96rem; font-weight: 600; letter-spacing: -.02em; margin: 0 0 6px; line-height: 1.3; color: var(--fg); }
+    .kr-date { font-size: .76rem; color: var(--muted-2); }
+    @media (max-width: 640px) { .kr-grid { grid-template-columns: 1fr; gap: 32px; } }
 
     /* FOOTER */
     footer { padding: 32px 0 48px; }
@@ -94,7 +101,7 @@
     <div class="wrap">
 
       <div class="project-header">
-        <span class="project-date">January 1, 2024</span>
+        <span class="project-date">Jan 1, 2024</span>
         <h1>Meravigliosa Biblioteca</h1>
         <p class="project-tagline">Documentary photography project exploring the quiet intimacy between readers, books, and architectural space in a historic library in Parma.</p>
       </div>
@@ -123,11 +130,30 @@
 
     </div>
 
-    <div class="next-project">
-      <a href="how-i-see-colors.html">
-        <span class="next-label">Next Project</span>
-        <span class="next-title">How I See Colors →</span>
-      </a>
+    <div class="keep-reading">
+      <div class="wrap">
+        <div class="kr-header">
+          <p class="kr-label">Keep reading</p>
+          <a class="kr-all" href="projects.html">View all</a>
+        </div>
+        <div class="kr-grid">
+          <a class="kr-card" href="how-i-see-colors.html">
+            <div class="kr-cover"></div>
+            <h3 class="kr-title">How I See Colors</h3>
+            <span class="kr-date">Jan 1, 2023</span>
+          </a>
+          <a class="kr-card" href="design-week-2025.html">
+            <div class="kr-cover"></div>
+            <h3 class="kr-title">Design Week 2025</h3>
+            <span class="kr-date">Apr 1, 2025</span>
+          </a>
+          <a class="kr-card" href="fondazione-magnani-rocca.html">
+            <div class="kr-cover"></div>
+            <h3 class="kr-title">Fondazione Magnani-Rocca</h3>
+            <span class="kr-date">Mar 1, 2023</span>
+          </a>
+        </div>
+      </div>
     </div>
   </main>
 
