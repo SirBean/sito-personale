@@ -101,9 +101,9 @@
       border-radius: 6px;
       margin-left: 4px;
       white-space: nowrap;
-      transition: background .15s, border-color .15s;
+      transition: background .15s, border-color .15s, transform .2s ease-out;
     }
-    .nav-all:hover { background: var(--surface); border-color: var(--border-strong); }
+    .nav-all:hover { background: var(--surface); border-color: var(--border-strong); transform: translateX(2px); }
     @media (max-width: 480px) { .nav-link { display: none; } }
 
     /* ═══════════════════════════════════════════
@@ -156,7 +156,9 @@
     .link-pill:active { transform: translateY(1px); }
     .link-pill.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
     .link-pill.primary:hover { background: #18181b; }
-    .link-pill svg { flex: 0 0 auto; }
+    .link-pill svg { flex: 0 0 auto; transition: transform .2s ease-out; }
+    .pill-yt:hover svg { transform: translateY(-2px) rotate(10deg); }
+    .pill-ig:hover svg { transform: scale(1.12) rotate(5deg); }
 
     /* ── Newsletter box ── */
     .nl-section { margin-top: 32px; text-align: left; }
@@ -168,8 +170,8 @@
     .nl-input { flex: 1; min-width: 140px; padding: 9px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-btn); font-family: inherit; font-size: .84rem; color: var(--fg); outline: none; transition: border-color .15s; }
     .nl-input:focus { border-color: var(--border-strong); }
     .nl-input::placeholder { color: var(--muted-2); }
-    .nl-btn { padding: 9px 16px; background: var(--fg); color: var(--bg); border: none; border-radius: var(--radius-btn); font-family: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background .15s; }
-    .nl-btn:hover { background: #18181b; }
+    .nl-btn { padding: 9px 16px; background: var(--fg); color: var(--bg); border: none; border-radius: var(--radius-btn); font-family: inherit; font-size: .84rem; font-weight: 600; cursor: pointer; white-space: nowrap; transition: background .15s, transform .2s ease-out; }
+    .nl-btn:hover { background: #18181b; transform: translateX(2px); }
     .nl-prev { font-size: .82rem; font-weight: 600; color: var(--fg); display: inline-block; }
     .nl-prev:hover { color: var(--muted); }
 
@@ -266,11 +268,11 @@
       <p class="location">Parma, Italy</p>
 
       <nav class="links" aria-label="Primary links">
-        <a class="link-pill" href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">
+        <a class="link-pill pill-yt" href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
           YouTube
         </a>
-        <a class="link-pill" href="https://www.instagram.com/mattia_giannattasio/" target="_blank" rel="noopener noreferrer">
+        <a class="link-pill pill-ig" href="https://www.instagram.com/mattia_giannattasio/" target="_blank" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
           Instagram
         </a>
