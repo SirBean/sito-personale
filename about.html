@@ -46,12 +46,13 @@
     .prose p { font-size: .96rem; line-height: 1.78; color: var(--muted); margin: 0 0 16px; }
     .prose p:last-child { margin-bottom: 0; }
 
-    /* TWO-COL FACTS */
-    .facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; max-width: 640px; }
-    .fact-item { padding: 16px 0; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 4px; }
-    .fact-item:nth-child(odd) { padding-right: 24px; }
-    .fact-label { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); }
-    .fact-value { font-size: .9rem; font-weight: 500; }
+    /* CV ENTRIES */
+    .cv-list { display: flex; flex-direction: column; max-width: 640px; }
+    .cv-entry { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .cv-entry:last-child { border-bottom: none; }
+    .cv-entry-title { font-size: .94rem; font-weight: 600; letter-spacing: -.01em; margin: 0 0 5px; line-height: 1.4; }
+    .cv-date { font-weight: 400; font-style: italic; color: var(--muted-2); }
+    .cv-entry p { font-size: .86rem; line-height: 1.65; color: var(--muted); margin: 0; }
 
     /* CTA */
     .cta-row { padding: 48px 0; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -68,8 +69,6 @@
     .footer-text a:hover { color: var(--fg); border-color: var(--fg); }
 
     @media (max-width: 520px) {
-      .facts-grid { grid-template-columns: 1fr; }
-      .fact-item:nth-child(odd) { padding-right: 0; }
       .page-header { gap: 24px; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -100,7 +99,7 @@
         </div>
         <div class="page-header-text">
           <h1>Mattia Giannattasio</h1>
-          <p>Photographer · Videomaker · Designer — Parma, Italy</p>
+          <p>Designer · Filmmaker · Photographer — Parma, Italy</p>
         </div>
       </div>
 
@@ -113,39 +112,61 @@
       </section>
 
       <section class="content-section">
-        <h2 class="section-heading">How I work</h2>
-        <div class="prose">
-          <p>[Placeholder — describe your creative process and working style. How do you approach a new commission or personal project? What does collaboration look like with you? What separates a good image from a great one in your view? Be honest about what you care about and what you don't compromise on.]</p>
+        <h2 class="section-heading">Works</h2>
+        <div class="cv-list">
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Cultural Institutions (Fondazione Magnani-Rocca, with Kreativehouse). <span class="cv-date">2023–now</span></p>
+            <p>Director, "Il Parco Romantico" institutional short. Exhibition photo/video credited in press materials.</p>
+          </div>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Brand Collaborations. <span class="cv-date">2023–now</span></p>
+            <p>Product films, launch content, and creative partnerships with global tech brands.</p>
+          </div>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Independent Creative Director / Filmmaker. <span class="cv-date">2022–now</span></p>
+            <p>One-person studio: scoping, production, licensing, invoicing. Freelance practice focused on branded content, short films, and digital design. Clients include Nikon, DJI, MOFT, PolarPro.</p>
+          </div>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Digital Products &amp; Design. <span class="cv-date">2021–now</span></p>
+            <p>Wallpaper packs, icon sets, digital assets.</p>
+          </div>
+
         </div>
       </section>
 
       <section class="content-section">
-        <h2 class="section-heading">At a glance</h2>
-        <div class="facts-grid">
-          <div class="fact-item">
-            <span class="fact-label">Based in</span>
-            <span class="fact-value">Parma, Italy</span>
+        <h2 class="section-heading">Features</h2>
+        <div class="cv-list">
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Workspaces. Feature Interview. <span class="cv-date">2025</span></p>
+            <p>Studio and workflow feature (#502) in a global creative community newsletter.</p>
           </div>
-          <div class="fact-item">
-            <span class="fact-label">Available for</span>
-            <span class="fact-value">[Commissions · Collabs]</span>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">The Subtle Art of Slowing Down. <span class="cv-date">2025</span></p>
+            <p>Personal short film and essay, shared by Tobias van Schneider and featured by mymind.</p>
           </div>
-          <div class="fact-item">
-            <span class="fact-label">Disciplines</span>
-            <span class="fact-value">Photography · Video · Design</span>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">David Zwirner. Press Photography for Giorgio Morandi Exhibition. <span class="cv-date">2025</span></p>
+            <p>Press photos produced for Fondazione Magnani-Rocca with KreativeHouse, featured in the international exhibition hosted by David Zwirner Gallery.</p>
           </div>
-          <div class="fact-item">
-            <span class="fact-label">Languages</span>
-            <span class="fact-value">Italian · English</span>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Sony World Photography Awards. Open (Architecture). <span class="cv-date">2021</span></p>
+            <p>Image submitted in the international competition (architecture category).</p>
           </div>
-          <div class="fact-item">
-            <span class="fact-label">Clients include</span>
-            <span class="fact-value">Anthropic, Fondazione Cariparma, Kreativehouse</span>
+
+          <div class="cv-entry">
+            <p class="cv-entry-title">Venice Photo Lab. Photography Exhibition. <span class="cv-date">2020</span></p>
+            <p>Photo exhibited as an artist in Venice.</p>
           </div>
-          <div class="fact-item">
-            <span class="fact-label">Newsletter</span>
-            <span class="fact-value">The Creative Lens — Substack</span>
-          </div>
+
         </div>
       </section>
 
