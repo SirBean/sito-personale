@@ -43,54 +43,23 @@
     .project-tagline { font-size: 1rem; color: var(--muted); margin: 0 0 10px; max-width: 560px; line-height: 1.6; }
     .project-date { font-size: .8rem; color: var(--muted-2); display: block; }
 
-    /* META */
-    .meta-row { display: flex; flex-wrap: wrap; gap: 24px 0; padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .meta-item { flex: 1; min-width: 130px; display: flex; flex-direction: column; gap: 4px; }
-    .meta-label { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); }
-    .meta-value { font-size: .9rem; font-weight: 500; }
-
-    /* SECTIONS */
-    .content-section { padding: 44px 0; border-bottom: 1px solid var(--border); }
-    .section-heading { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 24px; }
-    .prose { max-width: 640px; }
-    .prose p { font-size: .96rem; line-height: 1.78; color: var(--muted); margin: 0 0 16px; }
-    .prose p:last-child { margin-bottom: 0; }
-
-    /* VIDEO PLACEHOLDER */
-    .video-ph {
-      aspect-ratio: 16/9;
-      background: #e9e9eb;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      margin-bottom: 12px;
-    }
-    .play-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: rgba(9,9,11,.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background .15s;
-    }
-    .video-ph:hover .play-icon { background: rgba(9,9,11,.16); }
-
-    /* STILLS GRID — 2-col, uniform 16/9 cells */
-    .stills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .img-ph { aspect-ratio: 16/9; background: repeating-linear-gradient(-60deg, #ebebed, #ebebed 10px, #e4e4e7 10px, #e4e4e7 20px); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color .15s; }
+    /* PROJECT BODY */
+    .project-body { padding: 40px 0 60px; max-width: 660px; }
+    .project-body > p { font-size: .95rem; line-height: 1.8; color: var(--muted); margin: 0 0 28px; }
+    .inline-img { margin: 4px 0 28px; }
+    .inline-img-grid { display: grid; gap: 10px; margin: 4px 0 28px; }
+    .inline-img-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .inline-img-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .img-ph { background: repeating-linear-gradient(-60deg, #ebebed, #ebebed 10px, #e4e4e7 10px, #e4e4e7 20px); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color .15s; }
     .img-ph:hover { border-color: var(--border-strong); }
-
-    /* DELIVERABLES LIST */
-    .deliverables { display: flex; flex-direction: column; gap: 0; }
-    .deliverable-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
-    .deliverable-row:last-child { border-bottom: none; }
-    .deliverable-name { font-size: .9rem; font-weight: 500; }
-    .deliverable-detail { font-size: .82rem; color: var(--muted); }
+    .inline-img .img-ph { aspect-ratio: 3/2; display: block; width: 100%; }
+    .inline-img .img-ph.wide { aspect-ratio: 16/9; }
+    .inline-img-grid .img-ph { aspect-ratio: 3/2; }
+    /* VIDEO */
+    .video-ph { aspect-ratio: 16/9; background: #e9e9eb; border: 1px solid var(--border); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; width: 100%; }
+    .play-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(9,9,11,.1); display: flex; align-items: center; justify-content: center; transition: background .15s; }
+    .video-ph:hover .play-icon { background: rgba(9,9,11,.18); }
+    .video-caption { font-size: .8rem; color: var(--muted-2); margin: 0 0 28px; }
 
     /* NEXT PROJECT */
     .next-project { border-top: 1px solid var(--border); background: var(--surface); }
@@ -107,11 +76,9 @@
     .footer-text a:hover { color: var(--fg); border-color: var(--fg); }
 
     /* RESPONSIVE */
-    @media (max-width: 640px) {
-      .stills-grid { grid-template-columns: 1fr; }
-      .nav-title { display: none; }
-      .meta-item { min-width: 100px; }
-      .deliverable-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    @media (max-width: 520px) {
+      .inline-img-grid.cols-2,
+      .inline-img-grid.cols-3 { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -148,56 +115,27 @@
         <span class="project-date">2025</span>
       </div>
 
-      <section class="content-section">
-        <h2 class="section-heading">About the Project</h2>
-        <div class="prose">
-          <p>During Design Week 2025, [client placeholder] commissioned a full content package to document the event across [number] days in [location]. The brief required a balance between editorial storytelling, fast-turnaround social content, and a longer-form branded video designed for [platform placeholder].</p>
-          <p>[Placeholder: second paragraph detailing the production specifics — team size, equipment used, post-production timeline, and any notable creative constraints or opportunities. Include information on the brand guidelines followed and how creative freedom was negotiated with the client.]</p>
-          <p>[Placeholder: third paragraph on results — platforms published, total reach, engagement metrics, and any notable feedback from the client or audience. Include any awards, features, or follow-up commissions that resulted from this project.]</p>
-        </div>
-      </section>
+      <div class="project-body">
+        <p>Durante la Design Week 2025, [cliente placeholder] ha commissionato un pacchetto completo di contenuti per documentare l'evento. Il brief chiedeva qualcosa che sembrasse editoriale più che promozionale — film e immagini capaci di vivere sui canali del brand ma anche di reggere da soli.</p>
 
-      <section class="content-section">
-        <h2 class="section-heading">Main Video</h2>
-        <div class="video-ph" role="img" aria-label="Video placeholder">
-          <div class="play-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="transform:translateX(2px)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <div class="inline-img">
+          <div class="video-ph" role="img" aria-label="Video placeholder">
+            <div class="play-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="transform:translateX(2px)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
           </div>
+          <p class="video-caption">[Titolo del film] — [durata] · [piattaforma]</p>
         </div>
-        <p style="font-size:.82rem; color:var(--muted); margin:0;">[Placeholder title] — [duration] · Published on [platform placeholder]</p>
-      </section>
 
-      <section class="content-section">
-        <h2 class="section-heading">On-site Stills</h2>
-        <div class="stills-grid">
-          <div class="img-ph"></div>
-          <div class="img-ph"></div>
-          <div class="img-ph"></div>
-          <div class="img-ph"></div>
-        </div>
-      </section>
+        <p>Nel corso di [X] giorni in location, ci siamo mossi tra gli spazi dell'evento, le installazioni e le conversazioni che avvenivano ai margini. La sfida — come sempre con gli eventi live — era trovare il frame giusto prima che il momento svanisse.</p>
 
-      <section class="content-section">
-        <h2 class="section-heading">Deliverables</h2>
-        <div class="deliverables">
-          <div class="deliverable-row">
-            <span class="deliverable-name">Hero video</span>
-            <span class="deliverable-detail">[X] min · [platform] · [format]</span>
-          </div>
-          <div class="deliverable-row">
-            <span class="deliverable-name">Short-form reels</span>
-            <span class="deliverable-detail">[N] × 60s · Instagram / TikTok</span>
-          </div>
-          <div class="deliverable-row">
-            <span class="deliverable-name">Photography set</span>
-            <span class="deliverable-detail">[N] selects · High-res · Editorial license</span>
-          </div>
-          <div class="deliverable-row">
-            <span class="deliverable-name">Behind-the-scenes content</span>
-            <span class="deliverable-detail">[N] stories · [platform]</span>
-          </div>
+        <div class="inline-img-grid cols-2">
+          <div class="img-ph"></div>
+          <div class="img-ph"></div>
+          <div class="img-ph"></div>
+          <div class="img-ph"></div>
         </div>
-      </section>
+      </div>
 
     </div>
 

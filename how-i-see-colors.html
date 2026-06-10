@@ -43,24 +43,19 @@
     .project-tagline { font-size: 1rem; color: var(--muted); margin: 0 0 10px; max-width: 560px; line-height: 1.6; }
     .project-date { font-size: .8rem; color: var(--muted-2); display: block; }
 
-    /* META */
-    .meta-row { display: flex; flex-wrap: wrap; gap: 24px 0; padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .meta-item { flex: 1; min-width: 130px; display: flex; flex-direction: column; gap: 4px; }
-    .meta-label { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); }
-    .meta-value { font-size: .9rem; font-weight: 500; }
-
-    /* SECTIONS */
-    .content-section { padding: 44px 0; border-bottom: 1px solid var(--border); }
-    .section-heading { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 24px; }
-    .prose { max-width: 640px; }
-    .prose p { font-size: .96rem; line-height: 1.78; color: var(--muted); margin: 0 0 16px; }
-    .prose p:last-child { margin-bottom: 0; }
-
-    /* GALLERY — 2-col, consistent square cells for an art series */
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .img-ph { aspect-ratio: 1; background: repeating-linear-gradient(60deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color .15s; }
+    /* PROJECT BODY */
+    .project-body { padding: 40px 0 60px; max-width: 660px; }
+    .project-body > p { font-size: .95rem; line-height: 1.8; color: var(--muted); margin: 0 0 28px; }
+    .inline-img { margin: 4px 0 28px; }
+    .inline-img-grid { display: grid; gap: 10px; margin: 4px 0 28px; }
+    .inline-img-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+    .inline-img-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .img-ph { background: repeating-linear-gradient(60deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border: 1px solid var(--border); border-radius: var(--radius-sm); transition: border-color .15s; }
     .img-ph:hover { border-color: var(--border-strong); }
-    .img-ph.full-w  { aspect-ratio: 16/9; grid-column: 1 / -1; }
+    .inline-img .img-ph { aspect-ratio: 3/2; display: block; width: 100%; }
+    .inline-img .img-ph.wide { aspect-ratio: 16/9; }
+    .inline-img-grid .img-ph { aspect-ratio: 3/2; }
+    .inline-img-grid .img-ph.sq { aspect-ratio: 1; }
 
     /* NEXT PROJECT */
     .next-project { border-top: 1px solid var(--border); background: var(--surface); }
@@ -77,11 +72,9 @@
     .footer-text a:hover { color: var(--fg); border-color: var(--fg); }
 
     /* RESPONSIVE */
-    @media (max-width: 640px) {
-      .gallery-grid { grid-template-columns: 1fr; }
-      .img-ph.full-w { aspect-ratio: 3/2; }
-      .nav-title { display: none; }
-      .meta-item { min-width: 100px; }
+    @media (max-width: 520px) {
+      .inline-img-grid.cols-2,
+      .inline-img-grid.cols-3 { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -118,26 +111,22 @@
         <span class="project-date">2023 – 2024</span>
       </div>
 
-      <section class="content-section">
-        <h2 class="section-heading">About the Series</h2>
-        <div class="prose">
-          <p>How I See Colors is a personal visual essay that investigates the relationship between color perception, emotion, and the photographic act. Starting from the observation that two people looking at the same scene will never see the same colors, the series explores what it means to have a visual identity — a personal palette that recurs across years and subjects.</p>
-          <p>[Placeholder: second paragraph about the structure of the series — how images are organized thematically or chromatically, the locations or moments photographed, and the visual language developed over time. This section will describe the recurring motifs, the editing philosophy, and the artist's intent in releasing work as an ongoing series rather than a closed body.]</p>
-          <p>[Placeholder: optional closing paragraph on the theoretical framework — references to color theory, photography history, or personal influences that informed the project.]</p>
-        </div>
-      </section>
+      <div class="project-body">
+        <p>Il colore non è mai oggettivo. Due persone che guardano lo stesso cielo lo descriveranno in modo diverso — ed entrambe avranno ragione. Questa serie è nata come un esercizio personale di attenzione: fotografare i colori a cui continuavo a tornare, quelli che sentivo miei ancora prima di riuscire a spiegare perché.</p>
 
-      <section class="content-section">
-        <h2 class="section-heading">Selected Images</h2>
-        <div class="gallery-grid">
-          <div class="img-ph full-w"></div>
-          <div class="img-ph"></div>
-          <div class="img-ph"></div>
-          <div class="img-ph"></div>
-          <div class="img-ph"></div>
-          <div class="img-ph full-w"></div>
+        <div class="inline-img">
+          <div class="img-ph wide"></div>
         </div>
-      </section>
+
+        <p>Quello che è emerso nel corso di due anni è meno un corpus di lavoro che un diario visivo — organizzato non per soggetto o luogo, ma per sensazione. Ocre caldi e blu polverosi. Il verde specifico di vecchie persiane. Il modo in cui il rosso arriva sempre con una certa urgenza. Continuo ad aggiungerci immagini.</p>
+
+        <div class="inline-img-grid cols-2">
+          <div class="img-ph sq"></div>
+          <div class="img-ph sq"></div>
+          <div class="img-ph sq"></div>
+          <div class="img-ph sq"></div>
+        </div>
+      </div>
 
     </div>
 

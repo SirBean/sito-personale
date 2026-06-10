@@ -44,18 +44,9 @@
     .project-tagline { font-size: 1rem; color: var(--muted); margin: 0 0 10px; max-width: 560px; line-height: 1.6; }
     .project-date { font-size: .8rem; color: var(--muted-2); display: block; }
 
-    /* META */
-    .meta-row { display: flex; flex-wrap: wrap; gap: 24px 0; padding: 24px 0; border-bottom: 1px solid var(--border); }
-    .meta-item { flex: 1; min-width: 130px; display: flex; flex-direction: column; gap: 4px; }
-    .meta-label { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); }
-    .meta-value { font-size: .9rem; font-weight: 500; }
-
-    /* SECTIONS */
-    .content-section { padding: 44px 0; border-bottom: 1px solid var(--border); }
-    .section-heading { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 24px; }
-    .prose { max-width: 640px; }
-    .prose p { font-size: .96rem; line-height: 1.78; color: var(--muted); margin: 0 0 16px; }
-    .prose p:last-child { margin-bottom: 0; }
+    /* PROJECT BODY */
+    .project-body { padding: 40px 0 60px; max-width: 660px; }
+    .project-body > p { font-size: .95rem; line-height: 1.8; color: var(--muted); margin: 0 0 28px; }
 
     /* ISSUE CARDS */
     .issues-list { display: flex; flex-direction: column; }
@@ -74,7 +65,7 @@
     .cta-box { margin-top: 36px; padding: 24px 28px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     .cta-copy h3 { font-size: .98rem; font-weight: 600; margin: 0 0 4px; }
     .cta-copy p { font-size: .84rem; color: var(--muted); margin: 0; }
-    .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--fg); color: var(--bg); border-radius: 999px; font-size: .88rem; font-weight: 500; white-space: nowrap; transition: background .15s; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--fg); color: var(--bg); border-radius: 8px; font-size: .88rem; font-weight: 500; white-space: nowrap; transition: background .15s; }
     .cta-btn:hover { background: #18181b; }
 
     /* NEXT PROJECT */
@@ -93,8 +84,6 @@
 
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      .nav-title { display: none; }
-      .meta-item { min-width: 100px; }
       .cta-box { flex-direction: column; align-items: flex-start; }
       .issue-card { gap: 12px; }
       .issue-num { min-width: 36px; }
@@ -134,17 +123,9 @@
         <span class="project-date">2023 – presente</span>
       </div>
 
-      <section class="content-section">
-        <h2 class="section-heading">About the Newsletter</h2>
-        <div class="prose">
-          <p>The Creative Lens is a weekly newsletter exploring the intersection of photography, visual culture, and the creative process. Each issue is built around one central essay — sometimes personal, sometimes analytical — accompanied by three curated links and one recommendation. It's designed to be read slowly, away from the feed.</p>
-          <p>[Placeholder: second paragraph about the themes and evolution of the newsletter over time. This section will describe the recurring subjects covered — from photography theory and darkroom practice to creative workflow and the economics of being a visual artist — and the community that has grown around it.]</p>
-          <p>[Placeholder: optional third paragraph about notable issues, media mentions, or collaborations with other writers and publications that came out of the newsletter.]</p>
-        </div>
-      </section>
+      <div class="project-body">
+        <p>The Creative Lens è una newsletter mensile sulla fotografia, la cultura visiva e il processo creativo. Ogni numero è costruito attorno a un saggio centrale — a volte personale, a volte analitico — accompagnato da tre link selezionati e una raccomandazione. È pensata per essere letta lentamente, lontano dal feed.</p>
 
-      <section class="content-section">
-        <h2 class="section-heading">Recent Issues</h2>
         <div class="issues-list">
 
           <a class="issue-card" href="https://substack.com/@giannattasiomattia/p/issue-23" target="_blank" rel="noopener noreferrer">
@@ -209,7 +190,7 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
-      </section>
+      </div>
 
     </div>
 
