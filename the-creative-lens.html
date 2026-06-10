@@ -12,7 +12,7 @@
     :root {
       --bg: #ffffff; --fg: #09090b; --muted: #71717a; --muted-2: #a1a1aa;
       --border: #e4e4e7; --border-strong: #d4d4d8; --surface: #fafafa;
-      --radius: 10px; --radius-sm: 8px; --maxw: 980px;
+      --radius: 6px; --radius-sm: 6px; --maxw: 980px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -32,21 +32,16 @@
     .nav-all:hover { background: var(--surface); border-color: var(--border-strong); transform: translateX(2px); }
     @media (max-width: 480px) { .nav-link { display: none; } }
 
-    /* COVER */
-    .cover-full { width: 100%; height: 65vh; min-height: 280px; max-height: 580px; background: #f4f4f5; display: flex; align-items: center; justify-content: center; }
-    .cover-logo { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .cover-wordmark { font-size: clamp(1.6rem, 6vw, 2.8rem); font-weight: 600; letter-spacing: -.03em; color: var(--muted-2); opacity: .4; }
-    .cover-sub { font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-2); opacity: .35; }
-
     /* PROJECT HEADER */
-    .project-header { padding: 72px 0 64px; }
-    .project-header h1 { font-size: clamp(2.2rem, 5.5vw, 3.4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 14px; }
-    .project-tagline { font-size: 1.05rem; color: var(--muted); margin: 0 0 12px; max-width: 560px; line-height: 1.6; letter-spacing: -0.01em; }
-    .project-date { font-size: .82rem; color: var(--muted-2); display: block; letter-spacing: 0; }
+    .project-header { padding: 80px 0 48px; text-align: center; }
+    .project-header h1 { font-size: clamp(2.2rem, 5.5vw, 3.4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 20px; }
+    .project-tagline { font-size: 1.05rem; color: var(--muted); margin: 0 auto; max-width: 560px; line-height: 1.6; letter-spacing: -0.01em; }
+    .project-date { font-size: .875rem; font-weight: 500; color: var(--fg); display: block; letter-spacing: 0; margin: 0 0 24px; }
+    .project-divider { border: none; border-top: 1px solid rgba(0,0,0,0.05); max-width: 660px; margin: 0 auto; }
 
     /* PROJECT BODY */
-    .project-body { padding: 96px 0 120px; max-width: 660px; }
-    .project-body > p { font-size: 1rem; line-height: 1.65; color: var(--muted); margin: 0 0 28px; letter-spacing: -0.01em; }
+    .project-body { padding: 72px 0 120px; max-width: 660px; margin: 0 auto; }
+    .project-body > p { font-size: 1rem; line-height: 1.65; color: var(--muted); margin: 0 0 24px; letter-spacing: -0.01em; }
 
     /* ISSUE CARDS */
     .issues-list { display: flex; flex-direction: column; }
@@ -65,7 +60,7 @@
     .cta-box { margin-top: 36px; padding: 24px 28px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     .cta-copy h3 { font-size: .98rem; font-weight: 600; margin: 0 0 4px; }
     .cta-copy p { font-size: .84rem; color: var(--muted); margin: 0; }
-    .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--fg); color: var(--bg); border-radius: 8px; font-size: .88rem; font-weight: 500; white-space: nowrap; transition: background .15s; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: var(--fg); color: var(--bg); border-radius: 6px; font-size: .88rem; font-weight: 500; white-space: nowrap; transition: background .15s; }
     .cta-btn:hover { background: #18181b; }
 
     /* NEXT PROJECT */
@@ -107,21 +102,15 @@
     </div>
   </nav>
 
-  <div class="cover-full">
-    <div class="cover-logo" aria-hidden="true">
-      <span class="cover-wordmark">The Creative Lens</span>
-      <span class="cover-sub">A weekly newsletter</span>
-    </div>
-  </div>
-
   <main>
     <div class="wrap">
 
       <div class="project-header">
+        <span class="project-date">January 1, 2023</span>
         <h1>The Creative Lens</h1>
         <p class="project-tagline">A weekly newsletter on photography, visual culture, and the creative process — one essay, three links, and one recommendation. Published every [day].</p>
-        <span class="project-date">2023 – presente</span>
       </div>
+      <hr class="project-divider">
 
       <div class="project-body">
         <p>The Creative Lens è una newsletter mensile sulla fotografia, la cultura visiva e il processo creativo. Ogni numero è costruito attorno a un saggio centrale — a volte personale, a volte analitico — accompagnato da tre link selezionati e una raccomandazione. È pensata per essere letta lentamente, lontano dal feed.</p>

@@ -12,7 +12,7 @@
     :root {
       --bg: #ffffff; --fg: #09090b; --muted: #71717a; --muted-2: #a1a1aa;
       --border: #e4e4e7; --border-strong: #d4d4d8; --surface: #fafafa;
-      --radius: 10px; --radius-sm: 8px; --maxw: 980px;
+      --radius: 6px; --radius-sm: 6px; --maxw: 980px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -32,31 +32,26 @@
     .nav-all:hover { background: var(--surface); border-color: var(--border-strong); transform: translateX(2px); }
     @media (max-width: 480px) { .nav-link { display: none; } }
 
-    /* COVER */
-    .cover-full { width: 100%; height: 65vh; min-height: 280px; max-height: 580px; background: #18271b; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
-    .cover-full img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .ph-icon { display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgba(255,255,255,.25); }
-    .ph-icon span { font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-
     /* PROJECT HEADER */
-    .project-header { padding: 72px 0 64px; }
-    .project-header h1 { font-size: clamp(2.2rem, 5.5vw, 3.4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 14px; }
-    .project-tagline { font-size: 1.05rem; color: var(--muted); margin: 0 0 12px; max-width: 560px; line-height: 1.6; letter-spacing: -0.01em; }
-    .project-date { font-size: .82rem; color: var(--muted-2); display: block; letter-spacing: 0; }
+    .project-header { padding: 80px 0 48px; text-align: center; }
+    .project-header h1 { font-size: clamp(2.2rem, 5.5vw, 3.4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 20px; }
+    .project-tagline { font-size: 1.05rem; color: var(--muted); margin: 0 auto; max-width: 560px; line-height: 1.6; letter-spacing: -0.01em; }
+    .project-date { font-size: .875rem; font-weight: 500; color: var(--fg); display: block; letter-spacing: 0; margin: 0 0 24px; }
+    .project-divider { border: none; border-top: 1px solid rgba(0,0,0,0.05); max-width: 660px; margin: 0 auto; }
 
     /* PROJECT BODY */
-    .project-body { padding: 96px 0 120px; max-width: 660px; }
-    .project-body > p { font-size: 1rem; line-height: 1.65; color: var(--muted); margin: 0 0 28px; letter-spacing: -0.01em; }
+    .project-body { padding: 72px 0 120px; max-width: 660px; margin: 0 auto; }
+    .project-body > p { font-size: 1rem; line-height: 1.65; color: var(--muted); margin: 0 0 24px; letter-spacing: -0.01em; }
     .inline-img { margin: 16px 0 72px; }
     .inline-img-grid { display: grid; gap: 12px; margin: 16px 0 72px; }
     .inline-img-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .inline-img-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .img-ph { background: repeating-linear-gradient(-45deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border-radius: 12px; overflow: hidden; }
+    .img-ph { background: repeating-linear-gradient(-45deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border-radius: 6px; overflow: hidden; }
     .inline-img .img-ph { aspect-ratio: 3/2; display: block; width: 100%; }
     .inline-img-grid .img-ph { aspect-ratio: 3/2; }
 
     /* YOUTUBE INLINE */
-    .inline-yt { margin: 16px 0 72px; border-radius: 12px; overflow: hidden; background: #0a0a0a; box-shadow: 0 4px 32px rgba(0,0,0,.2); }
+    .inline-yt { margin: 16px 0 72px; border-radius: 6px; overflow: hidden; background: #0a0a0a; box-shadow: 0 4px 32px rgba(0,0,0,.2); }
     .inline-yt-frame { aspect-ratio: 16/9; }
     .inline-yt-frame iframe { display: block; width: 100%; height: 100%; border: none; }
     .inline-yt-caption { font-size: .78rem; color: var(--muted-2); padding: 10px 14px; background: var(--surface); }
@@ -96,22 +91,15 @@
     </div>
   </nav>
 
-  <!-- Cover: replace src with fmr-cover.jpg once exported from Notion -->
-  <div class="cover-full">
-    <div class="ph-icon" aria-hidden="true">
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span>Cover Image</span>
-    </div>
-  </div>
-
   <main>
     <div class="wrap">
 
       <div class="project-header">
+        <span class="project-date">March 1, 2023</span>
         <h1>Fondazione Magnani-Rocca</h1>
         <p class="project-tagline">Film direction and exhibition photography for one of Italy's most important private cultural foundations — produced with Kreativehouse.</p>
-        <span class="project-date">2023 – ongoing</span>
       </div>
+      <hr class="project-divider">
 
       <div class="project-body">
 

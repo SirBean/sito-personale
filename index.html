@@ -46,9 +46,9 @@
       --border: #e4e4e7;
       --border-strong: #d4d4d8;
       --surface: #fafafa;
-      --radius: 10px;
-      --radius-btn: 8px;   /* slightly rounded square for buttons */
-      --radius-sm: 8px;
+      --radius: 6px;
+      --radius-btn: 6px;   /* slightly rounded square for buttons */
+      --radius-sm: 6px;
       --card-shadow: 0 1px 3px rgba(0,0,0,.08);
       --maxw: 980px;
       --nav-h: 64px;
@@ -199,7 +199,7 @@
 
     .card { display: flex; flex-direction: column; background: var(--bg); transition: transform .2s ease-out; }
     .card:hover { transform: translateY(-3px); }
-    .card-cover { aspect-ratio: 16/9; background: repeating-linear-gradient(-45deg,#f4f4f5,#f4f4f5 12px,#efeff1 12px,#efeff1 24px); border-radius: 12px; overflow: hidden; position: relative; }
+    .card-cover { aspect-ratio: 16/9; background: repeating-linear-gradient(-45deg,#f4f4f5,#f4f4f5 12px,#efeff1 12px,#efeff1 24px); border-radius: 6px; overflow: hidden; position: relative; }
     .card-cover::after { content:"↗"; position:absolute; top:14px; right:16px; font-size:.8rem; color:var(--fg); opacity:0; transition:opacity .15s; }
     .card:hover .card-cover::after { opacity:.5; }
     .card-body { padding: 20px 0 0; }
