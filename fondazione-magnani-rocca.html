@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #ffffff; --fg: #09090b; --muted: #71717a; --muted-2: #a1a1aa;
-      --border: #e4e4e7; --border-strong: #d4d4d8; --surface: #fafafa;
+      --bg: #ffffff; --fg: #0d0d0d; --muted: #525252; --muted-2: #8c8c8c;
+      --border: #e8e8e8; --border-strong: #d4d4d4; --surface: #f9f9f9;
       --radius: 6px; --radius-sm: 6px; --maxw: 980px;
     }
     * { box-sizing: border-box; }
@@ -34,16 +34,16 @@
 
     /* PROJECT HEADER */
     .project-header { padding: 80px 0 48px; text-align: center; }
-    .project-header h1 { font-size: clamp(2.2rem, 5.5vw, 3.4rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 20px; }
-    .project-tagline { font-size: 1.05rem; color: var(--muted); margin: 0 auto; max-width: 560px; line-height: 1.6; letter-spacing: -0.01em; }
-    .project-date { font-size: .875rem; font-weight: 500; color: var(--fg); display: block; letter-spacing: 0; margin: 0 0 24px; }
-    .project-divider { border: none; border-top: 1px solid rgba(0,0,0,0.05); max-width: 660px; margin: 0 auto; }
+    .project-header h1 { font-size: clamp(2.4rem, 6vw, 3.75rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.04; margin: 0 0 20px; }
+    .project-tagline { font-size: 1.125rem; color: var(--muted); margin: 0 auto; max-width: 560px; line-height: 1.65; letter-spacing: -0.01em; }
+    .project-date { font-size: .8rem; font-weight: 500; color: var(--muted-2); display: block; letter-spacing: .02em; margin: 0 0 20px; }
+    .project-divider { border: none; border-top: 1px solid rgba(0,0,0,0.04); max-width: 660px; margin: 0 auto; }
 
     /* PROJECT BODY */
     .project-body { padding: 72px 0 120px; max-width: 660px; margin: 0 auto; }
-    .project-body > p { font-size: 1rem; line-height: 1.65; color: var(--muted); margin: 0 0 24px; letter-spacing: -0.01em; }
-    .inline-img { margin: 16px 0 72px; }
-    .inline-img-grid { display: grid; gap: 12px; margin: 16px 0 72px; }
+    .project-body > p { font-size: 1.0625rem; line-height: 1.78; color: var(--muted); margin: 0 0 1.75em; letter-spacing: -0.01em; }
+    .inline-img { margin: 48px 0 56px; }
+    .inline-img-grid { display: grid; gap: 12px; margin: 48px 0 56px; }
     .inline-img-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .inline-img-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     .img-ph { background: repeating-linear-gradient(-45deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border-radius: 6px; overflow: hidden; }
