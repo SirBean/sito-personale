@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How I See Colors — Mattia Giannattasio</title>
-  <meta name="description" content="A personal visual essay on color perception and its emotional resonance in everyday photography." />
+  <title>The Subtle Art of Slowing Down — Mattia Giannattasio</title>
+  <meta name="description" content="A short film about slowing down. No words. Just images." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -46,11 +46,14 @@
     .inline-img-grid { display: grid; gap: 12px; margin: 48px 0 56px; }
     .inline-img-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
     .inline-img-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-    .img-ph { background: repeating-linear-gradient(60deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border-radius: 6px; overflow: hidden; }
+    .img-ph { background: repeating-linear-gradient(-45deg, #f4f4f5, #f4f4f5 10px, #efeff1 10px, #efeff1 20px); border-radius: 6px; overflow: hidden; }
     .inline-img .img-ph { aspect-ratio: 3/2; display: block; width: 100%; }
     .inline-img .img-ph.wide { aspect-ratio: 16/9; }
     .inline-img-grid .img-ph { aspect-ratio: 3/2; }
-    .inline-img-grid .img-ph.sq { aspect-ratio: 1; }
+    /* VIDEO */
+    .video-ph { aspect-ratio: 16/9; background: #e9e9eb; border-radius: 6px; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
+    .play-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(9,9,11,.1); display: flex; align-items: center; justify-content: center; transition: background .15s; }
+    .video-ph:hover .play-icon { background: rgba(9,9,11,.18); }
 
     /* KEEP READING */
     .keep-reading { padding: 60px 0 120px; border-top: 1px solid var(--border); }
@@ -102,24 +105,28 @@
     <div class="wrap">
 
       <div class="project-header">
-        <span class="project-date">Jul 13, 2025</span>
-        <h1>How I See Colors</h1>
-        <p class="project-tagline">A photo project about the colors I keep coming back to.</p>
+        <span class="project-date">Aug 22, 2025</span>
+        <h1>The Subtle Art of Slowing Down</h1>
+        <p class="project-tagline">A short film about slowing down. No words. Just images.</p>
       </div>
       <hr class="project-divider">
 
       <div class="project-body">
-        <p>Color isn't objective. Two people look at the same sky and describe it differently. So I went to the Cinque Terre to photograph the colors I couldn't stop noticing. Franco Fontana got me into this years ago — this was me trying to actually see again.</p>
+        <p>I'd spent a whole year rushing. So I made a film about what happens when you stop. No voiceover, no captions — you're meant to feel it, not follow it. It's the thing I'm proudest of, and the one people connected with the most.</p>
 
         <div class="inline-img">
-          <div class="img-ph wide"></div>
+          <div class="video-ph" role="img" aria-label="Film placeholder">
+            <div class="play-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="transform:translateX(2px)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
         </div>
 
         <div class="inline-img-grid cols-2">
-          <div class="img-ph sq"></div>
-          <div class="img-ph sq"></div>
-          <div class="img-ph sq"></div>
-          <div class="img-ph sq"></div>
+          <div class="img-ph"></div>
+          <div class="img-ph"></div>
+          <div class="img-ph"></div>
+          <div class="img-ph"></div>
         </div>
       </div>
 
@@ -137,10 +144,10 @@
             <h3 class="kr-title">Creative Direction for a Music Artist</h3>
             <span class="kr-date">Nov 5, 2025</span>
           </a>
-          <a class="kr-card" href="the-subtle-art-of-slowing-down.html">
+          <a class="kr-card" href="how-i-see-colors.html">
             <div class="kr-cover"></div>
-            <h3 class="kr-title">The Subtle Art of Slowing Down</h3>
-            <span class="kr-date">Aug 22, 2025</span>
+            <h3 class="kr-title">How I See Colors</h3>
+            <span class="kr-date">Jul 13, 2025</span>
           </a>
           <a class="kr-card" href="design-week-2025.html">
             <div class="kr-cover"></div>
