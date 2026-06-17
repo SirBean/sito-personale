@@ -215,7 +215,7 @@
     /* FLOATING BAR */
     .float-bar {
       position: fixed;
-      bottom: 28px;
+      bottom: max(28px, calc(14px + env(safe-area-inset-bottom)));
       left: 50%;
       transform: translateX(-50%);
       z-index: 200;
@@ -266,7 +266,7 @@
     /* ═══════════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════════ */
-    footer { padding: 32px 0 48px; }
+    footer { padding: 32px 0 max(96px, calc(80px + env(safe-area-inset-bottom))); }
     .footer-text { font-size: .8rem; color: var(--muted); margin: 0; }
 
     /* ═══════════════════════════════════════════
@@ -336,10 +336,11 @@
         <div class="nl-box">
           <p class="nl-title">The Creative Lens</p>
           <p class="nl-desc">A monthly newsletter on photography, visual culture, and the creative process. I don't share this stuff anywhere else.</p>
-          <form class="nl-form" action="https://giannattasiomattia.substack.com/api/v1/free" method="post" target="_blank">
+          <form class="nl-form" id="nl-form" action="https://giannattasiomattia.substack.com/api/v1/free" method="post" target="nl-frame">
             <input class="nl-input" type="email" name="email" placeholder="Enter your email address" required />
             <button class="nl-btn" type="submit">Subscribe</button>
           </form>
+          <iframe name="nl-frame" style="display:none;width:0;height:0;border:none;" title="Newsletter subscription" aria-hidden="true"></iframe>
           <a class="nl-prev" href="https://giannattasiomattia.substack.com" target="_blank" rel="noopener noreferrer">Read previous newsletters →</a>
         </div>
       </div>
@@ -441,6 +442,27 @@
         }
       });
     });
+
+    (function() {
+      var form = document.getElementById('nl-form');
+      if (!form) return;
+      form.addEventListener('submit', function() {
+        var box = form.closest('.nl-box');
+        if (!box) return;
+        setTimeout(function() {
+          box.innerHTML =
+            '<div style="display:flex;align-items:center;gap:14px;padding:6px 0">' +
+              '<div style="width:36px;height:36px;border-radius:50%;background:#f0fdf4;flex-shrink:0;display:flex;align-items:center;justify-content:center">' +
+                '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>' +
+              '</div>' +
+              '<div>' +
+                '<p style="margin:0 0 3px;font-size:.96rem;font-weight:600;">Ci sei!</p>' +
+                '<p style="margin:0;font-size:.82rem;color:var(--muted);line-height:1.5">Controlla la tua email per confermare l\'iscrizione.</p>' +
+              '</div>' +
+            '</div>';
+        }, 80);
+      });
+    })();
   </script>
 </body>
 </html>
