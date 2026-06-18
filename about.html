@@ -52,12 +52,13 @@
 
     /* CV ENTRIES */
     .cv-list { display: flex; flex-direction: column; max-width: 640px; }
-    .cv-entry { padding: 12px 0; border-bottom: 1px solid var(--border); }
-    .cv-entry:last-child { border-bottom: none; }
-    .cv-entry-title { font-size: .94rem; font-weight: 600; letter-spacing: -.02em; margin: 0 0 3px; line-height: 1.4; }
+    .cv-entry { padding: 9px 0; }
+    .cv-entry-title { font-size: .94rem; font-weight: 600; letter-spacing: -.02em; margin: 0; line-height: 1.4; }
     .cv-date { font-weight: 400; font-style: italic; color: var(--muted-2); }
     .cv-entry p { font-size: .86rem; line-height: 1.6; color: var(--muted); margin: 0; letter-spacing: -0.01em; }
-    .credits-role { padding-bottom: 22px; }
+    .credits-role { padding-bottom: 26px; }
+    .cv-entry a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border-strong); transition: color .15s, text-decoration-color .15s; }
+    .cv-entry a:hover { color: var(--fg); text-decoration-color: var(--fg); }
 
     /* FLOATING BAR */
     .float-bar {
@@ -83,7 +84,7 @@
     .float-back { animation: floatBackIn .5s cubic-bezier(.34,1.56,.64,1) .1s both; background: none; border: none; cursor: pointer; padding: 0; font-family: inherit; }
 
     /* ABOUT CTA */
-    .about-cta { border-top: 1px solid var(--border); padding: 28px 0 0; margin-top: 8px; }
+    .about-cta { padding: 28px 0 0; margin-top: 8px; }
     .about-cta a { font-size: .9rem; font-weight: 500; color: var(--muted); transition: color .15s, transform .2s ease-out; display: inline-block; }
     .about-cta a:hover { color: var(--fg); transform: translateX(3px); }
 
@@ -145,23 +146,23 @@
           </div>
 
           <div class="cv-entry">
-            <p>Workspaces. Feature Interview #502 <span class="cv-date">2025</span></p>
+            <p><a href="https://workspaces.xyz/p/502-mattia-giannattasio" target="_blank" rel="noopener noreferrer">Workspaces. Feature Interview #502</a> <span class="cv-date">2025</span></p>
           </div>
 
           <div class="cv-entry">
-            <p>Il Parco Romantico, short film — Fondazione Magnani-Rocca <span class="cv-date">2025</span></p>
+            <p><a href="https://www.youtube.com/watch?v=Q9VqKhF2h-g" target="_blank" rel="noopener noreferrer">Il Parco Romantico, short film</a> — Fondazione Magnani-Rocca <span class="cv-date">2025</span></p>
           </div>
 
           <div class="cv-entry">
-            <p>Press Photography, Giorgio Morandi Exhibition — David Zwirner Gallery <span class="cv-date">2025</span></p>
+            <p>Press Photography, Giorgio Morandi Exhibition — <a href="https://www.davidzwirner.com/exhibitions/2025/giorgio-morandi-masterpieces-from-the-magnani-rocca-foundation" target="_blank" rel="noopener noreferrer">David Zwirner Gallery</a> <span class="cv-date">2025</span></p>
           </div>
 
           <div class="cv-entry">
-            <p>Editorial selection, Pragmatika Media — Sony World Photography Awards <span class="cv-date">2022</span></p>
+            <p>Editorial selection, <a href="https://pragmatika.media/en/sony-world-photography-awards-2022-konkursni-roboti-golovnoi-fotovistavki-roku/" target="_blank" rel="noopener noreferrer">Pragmatika Media</a> — Sony World Photography Awards <span class="cv-date">2022</span></p>
           </div>
 
           <div class="cv-entry">
-            <p>Venice Photo Lab. Photography Exhibition <span class="cv-date">2020</span></p>
+            <p><a href="https://venicephotolab.it/artists-2020" target="_blank" rel="noopener noreferrer">Venice Photo Lab. Photography Exhibition</a> <span class="cv-date">2020</span></p>
           </div>
 
         </div>
