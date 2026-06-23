@@ -133,12 +133,18 @@
     .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* Identity */
-    .hero-identity { display: flex; align-items: center; gap: 16px; margin: 0 0 104px; }
+    .hero-identity { display: flex; align-items: center; gap: 16px; margin: 0 0 32px; }
     .hero h1 { font-size: 1rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 3px; text-align: left; }
     .hero .tagline { font-size: .84rem; font-weight: 400; line-height: 1.4; color: var(--muted); margin: 0; text-align: left; }
 
+    /* Bio */
+    .hero-bio { text-align: left; }
+    .hero-bio p { font-size: .94rem; line-height: 1.75; color: var(--muted); margin: 0; letter-spacing: -.01em; }
+    .hero-bio a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border-strong); font-weight: 500; transition: color .15s, text-decoration-color .15s; }
+    .hero-bio a:hover { text-decoration-color: var(--fg); }
+
     /* Link buttons — slightly rounded square (not pill) */
-    .links { display: flex; flex-direction: column; gap: 9px; }
+    .links { display: flex; flex-direction: column; gap: 9px; margin-top: 104px; }
     .link-pill {
       display: flex;
       align-items: center;
@@ -282,18 +288,6 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       NAVBAR
-  ═══════════════════════════════════════════ -->
-  <nav class="site-nav" aria-label="Site navigation">
-    <div class="site-nav-inner">
-      <a href="#top" class="nav-brand">Mattia Giannattasio</a>
-      <div class="nav-links">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="projects.html" class="nav-all">All Work →</a>
-      </div>
-    </div>
-  </nav>
 
   <!-- ═══════════════════════════════════════════
        HERO — link-in-bio
@@ -309,6 +303,10 @@
           <h1>Mattia Giannattasio</h1>
           <p class="tagline">Filmmaker · Designer · Photographer</p>
         </div>
+      </div>
+
+      <div class="hero-bio">
+        <p>I make short films and visual campaigns, working with technology brands and cultural institutions. Based in Parma, Italy. I also write <a href="https://giannattasiomattia.substack.com" target="_blank" rel="noopener noreferrer">The Creative Lens</a>, a newsletter on photography and the creative process. <a href="about.html">More about me</a> · <a href="projects.html">All my work →</a></p>
       </div>
 
       <nav class="links" aria-label="Primary links">
