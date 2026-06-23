@@ -42,7 +42,7 @@
 
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #fcfcfc;
       --fg: #0d0d0d;
       --muted: #525252;
       --muted-2: #8c8c8c;
@@ -133,7 +133,7 @@
     .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* Identity */
-    .hero-identity { display: flex; align-items: center; gap: 16px; margin: 0 0 48px; }
+    .hero-identity { display: flex; align-items: center; gap: 16px; margin: 0 0 60px; }
     .hero h1 { font-size: 1rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 3px; text-align: left; }
     .hero .tagline { font-size: .84rem; font-weight: 400; line-height: 1.4; color: var(--muted); margin: 0; text-align: left; }
 
@@ -164,7 +164,7 @@
     .pill-colors:hover svg { transform: rotate(30deg) scale(1.05); }
 
     /* ── Newsletter box ── */
-    .nl-section { margin-top: 48px; text-align: left; }
+    .nl-section { margin-top: 60px; text-align: left; }
     .nl-eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 10px; }
     .nl-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 20px 18px; }
     .nl-title { font-size: .96rem; font-weight: 600; margin: 0 0 6px; letter-spacing: -.01em; }
@@ -179,7 +179,7 @@
     .nl-prev:hover { color: var(--muted); }
 
     /* ── YouTube embed ── */
-    .yt-section { margin-top: 48px; }
+    .yt-section { margin-top: 60px; }
     .yt-eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 10px; text-align: left; }
     .yt-frame {
       aspect-ratio: 16/9;
@@ -192,25 +192,23 @@
 
 
     /* ═══════════════════════════════════════════
-       PROJECTS
+       WORK LIST
     ═══════════════════════════════════════════ */
-    section { padding: 80px 0; }
-    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+    section { padding: 60px 0; }
+    .work-inner { width: 100%; max-width: 520px; margin: 0 auto; padding: 0 20px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
     .section-label { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-2); margin: 0; }
     .see-all { font-size: .82rem; font-weight: 500; color: var(--muted); letter-spacing: -0.01em; transition: color .15s; }
     .see-all:hover { color: var(--fg); }
 
-    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 64px 24px; }
-
-    .card { display: flex; flex-direction: column; background: var(--bg); transition: transform .2s ease-out; }
-    .card:hover { transform: translateY(-3px); }
-    .card-cover { aspect-ratio: 1/1; background: repeating-linear-gradient(-45deg,#f4f4f5,#f4f4f5 12px,#efeff1 12px,#efeff1 24px); border-radius: 6px; overflow: hidden; position: relative; }
-    .card-cover::after { content:"↗"; position:absolute; top:14px; right:16px; font-size:.8rem; color:var(--fg); opacity:0; transition:opacity .15s; }
-    .card:hover .card-cover::after { opacity:.5; }
-    .card-body { padding: 20px 0 0; }
-    .card-title { font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em; margin: 0 0 6px; line-height: 1.3; }
-    .card-desc { font-size: .88rem; color: var(--muted); margin: 0 0 10px; line-height: 1.55; letter-spacing: -0.01em; }
-    .card-date { font-size: .78rem; color: var(--muted-2); margin-top: 8px; }
+    .work-list { display: flex; flex-direction: column; }
+    .work-item { display: flex; align-items: center; gap: 14px; padding: 10px 0; color: inherit; transition: opacity .15s; }
+    .work-item:hover { opacity: .55; }
+    .work-thumb { width: 48px; height: 48px; border-radius: var(--radius); overflow: hidden; flex-shrink: 0; background: repeating-linear-gradient(-45deg,#f4f4f5,#f4f4f5 8px,#efeff1 8px,#efeff1 16px); }
+    .work-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .work-info { flex: 1; min-width: 0; }
+    .work-title { font-size: .9rem; font-weight: 600; letter-spacing: -.02em; margin: 0 0 2px; line-height: 1.3; }
+    .work-date { font-size: .74rem; color: var(--muted-2); }
 
 
     /* FLOATING BAR */
@@ -274,8 +272,7 @@
        RESPONSIVE
     ═══════════════════════════════════════════ */
     @media (max-width: 680px) {
-      .projects-grid { grid-template-columns: 1fr; gap: 48px; }
-      section { padding: 56px 0; }
+      section { padding: 48px 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -372,43 +369,43 @@
          PROJECTS
     ═══════════════════════════════════════════ -->
     <section id="projects">
-      <div class="wrap">
+      <div class="work-inner">
         <div class="section-header">
           <p class="section-label">Work</p>
           <a class="see-all" href="projects.html">View all</a>
         </div>
 
-        <div class="projects-grid">
+        <div class="work-list">
 
-          <a class="card" href="meravigliosa-biblioteca.html" aria-label="Meravigliosa Biblioteca">
-            <div class="card-cover" aria-hidden="true"><img src="meravigliosa-05.jpg" alt="" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card-body">
-              <h2 class="card-title">Meravigliosa Biblioteca</h2>
-              <span class="card-date">May 12, 2026</span>
+          <a class="work-item" href="meravigliosa-biblioteca.html">
+            <div class="work-thumb"><img src="meravigliosa-05.jpg" alt="" /></div>
+            <div class="work-info">
+              <h2 class="work-title">Meravigliosa Biblioteca</h2>
+              <span class="work-date">May 12, 2026</span>
             </div>
           </a>
 
-          <a class="card" href="creative-direction-music-artist.html" aria-label="Creative Direction for a Music Artist">
-            <div class="card-cover" aria-hidden="true"></div>
-            <div class="card-body">
-              <h2 class="card-title">Creative Direction for a Music Artist</h2>
-              <span class="card-date">Nov 5, 2025</span>
+          <a class="work-item" href="creative-direction-music-artist.html">
+            <div class="work-thumb"></div>
+            <div class="work-info">
+              <h2 class="work-title">Creative Direction for a Music Artist</h2>
+              <span class="work-date">Nov 5, 2025</span>
             </div>
           </a>
 
-          <a class="card" href="the-subtle-art-of-slowing-down.html" aria-label="The Subtle Art of Slowing Down">
-            <div class="card-cover" aria-hidden="true"><img src="subtle-art-01.jpg" alt="" style="display:block;width:100%;height:100%;object-fit:cover;"></div>
-            <div class="card-body">
-              <h2 class="card-title">The Subtle Art of Slowing Down</h2>
-              <span class="card-date">Aug 22, 2025</span>
+          <a class="work-item" href="the-subtle-art-of-slowing-down.html">
+            <div class="work-thumb"><img src="subtle-art-01.jpg" alt="" /></div>
+            <div class="work-info">
+              <h2 class="work-title">The Subtle Art of Slowing Down</h2>
+              <span class="work-date">Aug 22, 2025</span>
             </div>
           </a>
 
-          <a class="card" href="how-i-see-colors.html" aria-label="How I See Colors">
-            <div class="card-cover" aria-hidden="true"></div>
-            <div class="card-body">
-              <h2 class="card-title">How I See Colors</h2>
-              <span class="card-date">Jul 13, 2025</span>
+          <a class="work-item" href="how-i-see-colors.html">
+            <div class="work-thumb"></div>
+            <div class="work-info">
+              <h2 class="work-title">How I See Colors</h2>
+              <span class="work-date">Jul 13, 2025</span>
             </div>
           </a>
 
