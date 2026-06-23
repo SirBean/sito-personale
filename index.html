@@ -123,18 +123,19 @@
 
     /* Avatar */
     .avatar {
-      width: 84px;
-      height: 84px;
-      border-radius: var(--radius);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
       overflow: hidden;
-      margin: 0 0 22px;
+      flex-shrink: 0;
       background: var(--surface);
     }
     .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* Identity */
-    .hero h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); font-weight: 600; letter-spacing: -.04em; line-height: 1.02; margin: 0 0 12px; text-align: left; }
-    .hero .tagline { font-size: .9rem; font-weight: 400; line-height: 1.6; color: var(--muted); margin: 0 0 26px; text-align: left; }
+    .hero-identity { display: flex; align-items: center; gap: 16px; margin: 0 0 28px; }
+    .hero h1 { font-size: 1rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 3px; text-align: left; }
+    .hero .tagline { font-size: .84rem; font-weight: 400; line-height: 1.4; color: var(--muted); margin: 0; text-align: left; }
 
     /* Link buttons — slightly rounded square (not pill) */
     .links { display: flex; flex-direction: column; gap: 9px; }
@@ -303,13 +304,15 @@
   <header class="hero" id="top">
     <div class="hero-inner">
 
-      <!-- Profile photo: save your portrait as avatar.jpg in this folder -->
-      <div class="avatar">
-        <img src="avatar.jpg" alt="Mattia Giannattasio" />
+      <div class="hero-identity">
+        <div class="avatar">
+          <img src="avatar.jpg" alt="Mattia Giannattasio" />
+        </div>
+        <div>
+          <h1>Mattia Giannattasio</h1>
+          <p class="tagline">Filmmaker · Designer · Photographer</p>
+        </div>
       </div>
-
-      <h1>Mattia Giannattasio</h1>
-      <p class="tagline">design, technology, filmmaking</p>
 
       <nav class="links" aria-label="Primary links">
         <a class="link-pill pill-yt" href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">
