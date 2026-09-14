@@ -146,24 +146,31 @@ iframe:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   white-space: nowrap;
 }
 .hero-reel {
+  --reel-height: .61em;
   position: relative;
   display: inline-block;
-  flex: 0 0 .9em;
-  width: .9em;
-  height: .61em;
+  flex: 0 0 auto;
+  width: calc(var(--reel-height) * var(--reel-ratio));
+  height: var(--reel-height);
   overflow: hidden;
   border-radius: 0;
-  background: var(--line);
+  background: transparent;
+  will-change: width;
 }
+.hero-reel.is-ready { transition: width .8s cubic-bezier(.22, 1, .36, 1); }
 .hero-reel img {
   position: absolute;
   inset: 0;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
-  transition: opacity .12s linear;
+  transform: scale(.965);
+  transform-origin: center bottom;
+  transition:
+    opacity .48s cubic-bezier(.4, 0, .2, 1),
+    transform .8s cubic-bezier(.22, 1, .36, 1);
 }
-.hero-reel img.is-active { opacity: 1; }
+.hero-reel img.is-active { opacity: 1; transform: scale(1); }
 .hero-copy {
   width: min(100%, 510px);
   margin-inline: auto;

@@ -46,13 +46,16 @@
       <div class="hero-wordmark">
         <h1 id="home-title">
           <span>Mattia</span>
-          <span class="hero-reel" aria-hidden="true">
-            <img class="is-active" src="hero-01.webp" alt="" width="640" height="440" fetchpriority="high" decoding="async">
-            <img src="hero-02.webp" alt="" width="640" height="440" decoding="async">
-            <img src="hero-03.webp" alt="" width="640" height="440" decoding="async">
-            <img src="hero-04.webp" alt="" width="640" height="440" decoding="async">
-            <img src="hero-05.webp" alt="" width="640" height="440" decoding="async">
-            <img src="hero-06.webp" alt="" width="640" height="440" decoding="async">
+          <span class="hero-reel" aria-hidden="true" style="--reel-ratio: 1.699;">
+            <img class="is-active" src="hero-01.webp" alt="" width="948" height="558" data-ratio="1.699" fetchpriority="high" decoding="async">
+            <img src="hero-02.webp" alt="" width="556" height="720" data-ratio="0.772" decoding="async">
+            <img src="hero-03.webp" alt="" width="1281" height="720" data-ratio="1.779" decoding="async">
+            <img src="hero-04.webp" alt="" width="719" height="720" data-ratio="0.999" decoding="async">
+            <img src="hero-05.webp" alt="" width="960" height="720" data-ratio="1.333" decoding="async">
+            <img src="hero-06.webp" alt="" width="540" height="720" data-ratio="0.750" decoding="async">
+            <img src="hero-07.webp" alt="" width="542" height="720" data-ratio="0.753" decoding="async">
+            <img src="hero-08.webp" alt="" width="1281" height="720" data-ratio="1.779" decoding="async">
+            <img src="hero-09.webp" alt="" width="964" height="720" data-ratio="1.339" decoding="async">
           </span>
           <span>Giannattasio</span>
         </h1>
@@ -138,12 +141,35 @@
 
       const frames = Array.from(reel.querySelectorAll('img'));
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      let activeFrame = 0;
+      let activeFrame = Math.floor(Math.random() * frames.length);
+      let frameQueue = [];
       let timer;
 
+      frames.forEach((frame, index) => {
+        frame.classList.toggle('is-active', index === activeFrame);
+      });
+      reel.style.setProperty('--reel-ratio', frames[activeFrame].dataset.ratio);
+
+      const shuffle = (items) => {
+        for (let index = items.length - 1; index > 0; index -= 1) {
+          const randomIndex = Math.floor(Math.random() * (index + 1));
+          [items[index], items[randomIndex]] = [items[randomIndex], items[index]];
+        }
+        return items;
+      };
+
+      const refillQueue = () => {
+        frameQueue = shuffle(frames
+          .map((frame, index) => index)
+          .filter((index) => index !== activeFrame));
+      };
+
       const showNextFrame = () => {
+        if (frameQueue.length === 0) refillQueue();
+        const nextFrame = frameQueue.shift();
         frames[activeFrame].classList.remove('is-active');
-        activeFrame = (activeFrame + 1) % frames.length;
+        activeFrame = nextFrame;
+        reel.style.setProperty('--reel-ratio', frames[activeFrame].dataset.ratio);
         frames[activeFrame].classList.add('is-active');
       };
 
@@ -158,6 +184,10 @@
       if (typeof reducedMotion.addEventListener === 'function') {
         reducedMotion.addEventListener('change', restartReel);
       }
+      refillQueue();
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => reel.classList.add('is-ready'));
+      });
       restartReel();
     })();
   </script>
