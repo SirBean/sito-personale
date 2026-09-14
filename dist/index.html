@@ -44,7 +44,18 @@
   <main id="main-content">
     <section class="shell home-hero" aria-labelledby="home-title">
       <div class="hero-wordmark">
-        <h1 id="home-title">Mattia Giannattasio</h1>
+        <h1 id="home-title">
+          <span>Mattia</span>
+          <span class="hero-reel" aria-hidden="true">
+            <img class="is-active" src="hero-01.webp" alt="" width="640" height="440" fetchpriority="high" decoding="async">
+            <img src="hero-02.webp" alt="" width="640" height="440" decoding="async">
+            <img src="hero-03.webp" alt="" width="640" height="440" decoding="async">
+            <img src="hero-04.webp" alt="" width="640" height="440" decoding="async">
+            <img src="hero-05.webp" alt="" width="640" height="440" decoding="async">
+            <img src="hero-06.webp" alt="" width="640" height="440" decoding="async">
+          </span>
+          <span>Giannattasio</span>
+        </h1>
       </div>
       <div class="hero-copy">
         <p class="hero-role">Filmmaker · Designer · Photographer</p>
@@ -120,5 +131,35 @@
       <a class="text-link" href="mailto:mattia.giannattasio@gmail.com">Work with me <span aria-hidden="true">→</span></a>
     </div>
   </footer>
+  <script>
+    (() => {
+      const reel = document.querySelector('.hero-reel');
+      if (!reel) return;
+
+      const frames = Array.from(reel.querySelectorAll('img'));
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let activeFrame = 0;
+      let timer;
+
+      const showNextFrame = () => {
+        frames[activeFrame].classList.remove('is-active');
+        activeFrame = (activeFrame + 1) % frames.length;
+        frames[activeFrame].classList.add('is-active');
+      };
+
+      const restartReel = () => {
+        window.clearInterval(timer);
+        if (!reducedMotion.matches && !document.hidden && frames.length > 1) {
+          timer = window.setInterval(showNextFrame, 2200);
+        }
+      };
+
+      document.addEventListener('visibilitychange', restartReel);
+      if (typeof reducedMotion.addEventListener === 'function') {
+        reducedMotion.addEventListener('change', restartReel);
+      }
+      restartReel();
+    })();
+  </script>
 </body>
 </html>

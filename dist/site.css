@@ -134,13 +134,37 @@ iframe:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 }
 .hero-wordmark h1 {
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .04em;
   font-family: var(--serif);
-  font-size: clamp(4.2rem, 8.7vw, 8.5rem);
+  font-size: clamp(4.1rem, 8.15vw, 8.2rem);
   font-weight: 600;
   line-height: .86;
   letter-spacing: -.075em;
   white-space: nowrap;
 }
+.hero-reel {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 .9em;
+  width: .9em;
+  height: .61em;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--line);
+  transform: translateY(.015em);
+}
+.hero-reel img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .12s linear;
+}
+.hero-reel img.is-active { opacity: 1; }
 .hero-copy {
   width: min(100%, 510px);
   margin-inline: auto;
@@ -432,7 +456,7 @@ iframe:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   .site-nav a { font-size: .875rem; }
   .home-hero { min-height: 94svh; padding-top: 90px; padding-bottom: 25px; }
   .hero-wordmark { justify-content: flex-start; padding-top: 55px; text-align: left; }
-  .hero-wordmark h1 { max-width: 100%; font-size: 11.1vw; line-height: .9; white-space: nowrap; }
+  .hero-wordmark h1 { max-width: 100%; gap: .035em; font-size: 10vw; line-height: .9; white-space: nowrap; }
   .hero-copy { width: 100%; }
   .hero-intro { max-width: 350px; font-size: 1rem; }
   .section-head { grid-template-columns: 1fr; margin-bottom: 45px; }
