@@ -135,7 +135,7 @@ iframe:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .hero-wordmark h1 {
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   gap: .04em;
   font-family: var(--serif);
@@ -152,9 +152,8 @@ iframe:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
   width: .9em;
   height: .61em;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 0;
   background: var(--line);
-  transform: translateY(.015em);
 }
 .hero-reel img {
   position: absolute;
