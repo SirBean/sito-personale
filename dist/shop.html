@@ -7,44 +7,55 @@
   <meta name="description" content="Prints and physical editions by Mattia Giannattasio. Subscribe to The Creative Lens on Substack for news of upcoming releases.">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="shop-update.css">
+  <link rel="preload" href="fonts/timeless-sans-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <script src="site.js?v=20261018e" defer></script>
+  <link rel="stylesheet" href="site.css?v=20261018e">
 </head>
 <body class="shop-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="index.html">Mattia Giannattasio</a>
+      <div class="header-links">
+        <a href="about.html">About</a>
+        <a href="mailto:mattia.giannattasio@gmail.com">Contact</a>
+      </div>
+      <a class="brand" href="index.html" aria-label="Mattia Giannattasio — homepage"><span>Mattia</span><span>Giannattasio</span></a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="projects.html">Work</a>
         <a href="shop.html" aria-current="page">Shop</a>
-        <a href="about.html">About</a>
-        <a class="nav-cta" href="the-creative-lens.html">Newsletter</a>
+        <a href="the-creative-lens.html">Newsletter</a>
       </nav>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 6h16M2 14h16" stroke="currentColor" stroke-width="1"/></svg></button>
+      <a class="mobile-work" href="projects.html">Work</a>
     </div>
   </header>
+  <dialog class="mobile-menu" id="mobile-menu" aria-labelledby="menu-title">
+    <h2 class="sr-only" id="menu-title">Navigation</h2>
+    <button class="menu-close" type="button" aria-label="Close navigation"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3 3 14 14M17 3 3 17" stroke="currentColor" stroke-width="1"/></svg></button>
+    <nav aria-label="Mobile navigation">
+      <a href="projects.html">Work</a>
+      <a href="shop.html" aria-current="page">Shop</a>
+      <a href="about.html">About</a>
+      <a href="the-creative-lens.html">Newsletter</a>
+      <a href="mailto:mattia.giannattasio@gmail.com">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer"><a href="https://www.instagram.com/mattia_giannattasio/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">YouTube</a></div>
+  </dialog>
   <main id="main-content">
-    <section class="shell shop-intro" aria-labelledby="shop-title">
-      <h1 id="shop-title">Shop.</h1>
-      <div class="shop-intro-bottom">
-        <p>Prints and physical editions<br>from my visual practice.</p>
-        <span class="shop-status">First release in preparation</span>
-      </div>
-    </section>
-    <section class="shell shop-release" aria-labelledby="release-title">
-      <p class="eyebrow">From moving image to paper</p>
-      <div class="shop-release-copy">
-        <h2 id="release-title">The first edition<br>is taking shape.</h2>
-        <p>I'm working on a collection of prints drawn from my moving-image work. I'll share the process, the finished pieces and release details through my newsletter.</p>
-      </div>
+    <header class="shop-intro" aria-labelledby="shop-title">
+      <h1 id="shop-title">Prints &amp; editions</h1>
+      <p>Prints and physical editions from my visual practice.</p>
+      <span class="shop-status">First release in preparation</span>
+    </header>
+    <section class="reading-column content-section" aria-labelledby="release-title">
+      <h2 id="release-title">From moving image to paper</h2>
+      <p>I'm working on a collection of prints drawn from my moving-image work. I'll share the process, the finished pieces and release details through my newsletter.</p>
     </section>
     <section class="mailing-band" aria-labelledby="shop-newsletter-title">
       <div class="shell mailing-inner">
-        <p class="eyebrow mailing-label">Letters from my studio · Substack</p>
-        <h2 class="mailing-title" id="shop-newsletter-title">The Creative<br>Lens.</h2>
+        <p class="eyebrow mailing-label">Release updates · The Creative Lens</p>
         <div class="mailing-copy">
-          <p>Photography, visual culture and the creative process. Plus studio notes and news of upcoming print releases.</p>
-          <a class="mailing-button" href="https://giannattasiomattia.substack.com" target="_blank" rel="noopener noreferrer">Join my newsletter <span aria-hidden="true">↗</span></a>
+          <a class="primary-link" href="https://giannattasiomattia.substack.com" target="_blank" rel="noopener noreferrer">Get release updates <span aria-hidden="true">↗</span></a>
           <span class="mailing-note">Read and subscribe on Substack.</span>
         </div>
       </div>

@@ -7,41 +7,62 @@
   <meta name="description" content="A six-minute visual essay by Mattia Giannattasio about creativity, burnout, and the cost of constant speed.">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="shop-update.css">
+  <link rel="preload" href="fonts/timeless-sans-variable.ttf" as="font" type="font/ttf" crossorigin>
+  <script src="site.js?v=20261018e" defer></script>
+  <link rel="stylesheet" href="site.css?v=20261018e">
 </head>
-<body>
+<body class="project-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="index.html">Mattia Giannattasio</a>
+      <div class="header-links">
+        <a href="about.html">About</a>
+        <a href="mailto:mattia.giannattasio@gmail.com">Contact</a>
+      </div>
+      <a class="brand" href="index.html" aria-label="Mattia Giannattasio — homepage"><span>Mattia</span><span>Giannattasio</span></a>
       <nav class="site-nav" aria-label="Main navigation">
         <a href="projects.html" aria-current="page">Work</a>
         <a href="shop.html">Shop</a>
-        <a href="about.html">About</a>
-        <a class="nav-cta" href="the-creative-lens.html">Newsletter</a>
+        <a href="the-creative-lens.html">Newsletter</a>
       </nav>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 6h16M2 14h16" stroke="currentColor" stroke-width="1"/></svg></button>
+      <a class="mobile-work" href="projects.html" aria-current="page">Work</a>
     </div>
   </header>
+  <dialog class="mobile-menu" id="mobile-menu" aria-labelledby="menu-title">
+    <h2 class="sr-only" id="menu-title">Navigation</h2>
+    <button class="menu-close" type="button" aria-label="Close navigation"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3 3 14 14M17 3 3 17" stroke="currentColor" stroke-width="1"/></svg></button>
+    <nav aria-label="Mobile navigation">
+      <a href="projects.html" aria-current="page">Work</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="the-creative-lens.html">Newsletter</a>
+      <a href="mailto:mattia.giannattasio@gmail.com">Contact</a>
+    </nav>
+    <div class="mobile-menu-footer"><a href="https://www.instagram.com/mattia_giannattasio/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">YouTube</a></div>
+  </dialog>
 
   <main id="main-content">
     <header class="shell article-head">
-      <h1 class="article-title">The Subtle Art<br>of Slowing Down.</h1>
+      <a class="article-back" href="projects.html">← All work</a>
+      <h1 class="article-title">The Subtle Art of Slowing Down.</h1>
       <p class="article-kicker">Visual essay · 2025</p>
       <p class="article-deck">A visual essay about creativity, burnout, and what it costs to never stop.</p>
+      <div class="inline-actions"><a class="text-link" href="#film">Watch the film <span aria-hidden="true">↓</span></a></div>
     </header>
 
-    <img class="article-hero" src="subtle-art-01.jpg" alt="Still from The Subtle Art of Slowing Down">
+    <div class="article-video" id="film">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/fpLxKefr530?rel=0&amp;modestbranding=1&amp;color=white" title="The Subtle Art of Slowing Down" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <p class="film-caption"><span>Watch the film</span><a class="text-link" href="https://www.youtube.com/watch?v=fpLxKefr530" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a></p>
+    </div>
+
+    <img class="article-hero" src="subtle-art-01.jpg" alt="Still from The Subtle Art of Slowing Down" loading="lazy" decoding="async">
 
     <article>
       <div class="article-body">
         <p>The Subtle Art of Slowing Down is a short film I made in August 2025 — a six-minute visual essay about creativity, burnout, and the cost of constant speed. It explores what happens when you decide to stop chasing the next thing and simply be present.</p>
-      </div>
-
-      <div class="article-video">
-        <div class="video-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/fpLxKefr530?rel=0&amp;modestbranding=1&amp;color=white" title="The Subtle Art of Slowing Down" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        </div>
       </div>
 
       <div class="article-body">
@@ -50,7 +71,7 @@
       </div>
 
       <figure class="article-media">
-        <img src="subtle-art-02.jpg" alt="Still from the visual essay">
+        <img src="subtle-art-02.jpg" alt="Still from the visual essay" loading="lazy" decoding="async">
       </figure>
 
       <div class="article-body">
@@ -58,8 +79,8 @@
       </div>
 
       <div class="article-media article-pair">
-        <img src="subtle-art-03.jpg" alt="Still showing the visual direction of the film">
-        <img src="subtle-art-04.jpg" alt="Still from the closing section of the film">
+        <img src="subtle-art-03.jpg" alt="Still showing the visual direction of the film" loading="lazy" decoding="async">
+        <img src="subtle-art-04.jpg" alt="Still from the closing section of the film" loading="lazy" decoding="async">
       </div>
 
       <div class="article-body">
@@ -73,6 +94,7 @@
     <section class="related" aria-label="More work">
       <div class="shell related-inner">
         <div class="related-links">
+          <h2 class="related-label">Continue exploring</h2>
           <a class="related-link" href="meravigliosa-biblioteca.html">Meravigliosa Biblioteca <span>Next story →</span></a>
           <a class="related-link" href="projects.html">All Work <span>View archive →</span></a>
           <a class="related-link" href="the-creative-lens.html">The Creative Lens <span>Read the newsletter →</span></a>
