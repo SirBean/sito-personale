@@ -18,8 +18,8 @@
   --type-body-size: 14px;
   --type-body-leading: 22px;
   --type-body-tracking: .04em;
-  --type-heading-tracking: 0em;
-  --type-control-tracking: 0em;
+  --type-heading-tracking: -.03em;
+  --type-control-tracking: -.03em;
   --type-navigation-size: 14px;
   --type-navigation-leading: 16px;
   --reading: 398px;
