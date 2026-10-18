@@ -7,6 +7,17 @@
   const menuClose = menu?.querySelector('.menu-close');
   let navigationPending = false;
   const activeAnimations = new Set();
+  // Netlify's Pretty URLs rewrite HTML links to extensionless routes in production.
+  const sitePages = new Set([
+    '/', '/about', '/projects', '/shop', '/the-creative-lens',
+    '/meravigliosa-biblioteca', '/the-subtle-art-of-slowing-down',
+    '/fondazione-magnani-rocca', '/how-i-see-colors', '/design-week-2025',
+    '/creative-direction-music-artist'
+  ]);
+  const pagePath = url => {
+    const path = url.pathname.replace(/\/+$/, '').replace(/\.html$/, '');
+    return path === '/index' || path === '' ? '/' : path;
+  };
 
   // Native dialog supplies focus containment, Escape and return-to-trigger focus.
   if (menu && menuToggle && menuClose) {
@@ -81,9 +92,9 @@
         event.ctrlKey || event.shiftKey || event.altKey || link.hasAttribute('download') ||
         (link.target && link.target !== '_self')) return;
     const destination = new URL(link.href, location.href);
-    if (destination.origin !== location.origin || !/\.html$/.test(destination.pathname)) return;
+    if (destination.origin !== location.origin || !sitePages.has(pagePath(destination))) return;
     if (menu?.open && menu.contains(link)) menu.close();
-    if (destination.pathname === location.pathname && destination.search === location.search) return;
+    if (pagePath(destination) === pagePath(new URL(location.href)) && destination.search === location.search) return;
     if (reducedMotion.matches || typeof Element.prototype.animate !== 'function') return;
     const main = document.querySelector('main');
     if (!main) return;
