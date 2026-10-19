@@ -8,8 +8,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preload" href="fonts/timeless-sans-variable.ttf" as="font" type="font/ttf" crossorigin>
-  <script src="site.js?v=20261018f" defer></script>
-  <link rel="stylesheet" href="site.css?v=20261018h">
+  <script src="site.js?v=20261019a" defer></script>
+  <link rel="stylesheet" href="site.css?v=20261019a">
 </head>
 <body class="project-page">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -21,9 +21,9 @@
       </div>
       <a class="brand" href="index.html" aria-label="Mattia Giannattasio — homepage"><span>Mattia</span><span>Giannattasio</span></a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="projects.html" aria-current="page">Work</a>
-        <a href="shop.html">Shop</a>
-        <a href="the-creative-lens.html">Newsletter</a>
+        <a class="nav-primary" href="projects.html" aria-current="page">Work</a>
+        <a class="nav-secondary" href="shop.html">Shop</a>
+        <a class="nav-secondary" href="the-creative-lens.html">Newsletter</a>
       </nav>
       <button class="menu-toggle" type="button" aria-label="Open navigation" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 6h16M2 14h16" stroke="currentColor" stroke-width="1"/></svg></button>
       <a class="mobile-work" href="projects.html" aria-current="page">Work</a>
@@ -33,18 +33,17 @@
     <h2 class="sr-only" id="menu-title">Navigation</h2>
     <button class="menu-close" type="button" aria-label="Close navigation"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3 3 14 14M17 3 3 17" stroke="currentColor" stroke-width="1"/></svg></button>
     <nav aria-label="Mobile navigation">
-      <a href="projects.html" aria-current="page">Work</a>
-      <a href="shop.html">Shop</a>
-      <a href="about.html">About</a>
-      <a href="the-creative-lens.html">Newsletter</a>
-      <a href="mailto:mattia.giannattasio@gmail.com">Contact</a>
+      <a href="projects.html" aria-current="page"><span>Work</span></a>
+      <a href="shop.html"><span>Shop</span></a>
+      <a href="about.html"><span>About</span></a>
+      <a href="the-creative-lens.html"><span>Newsletter</span></a>
+      <a href="mailto:mattia.giannattasio@gmail.com"><span>Contact</span></a>
     </nav>
     <div class="mobile-menu-footer"><a href="https://www.instagram.com/mattia_giannattasio/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">YouTube</a></div>
   </dialog>
 
   <main id="main-content">
     <header class="shell article-head">
-      <a class="article-back" href="projects.html">← All work</a>
       <h1 class="article-title">Design Week 2025.</h1>
       <p class="article-kicker">Creator coverage · 2025</p>
       <p class="article-deck">Video production, event documentation, and short-form social content created during Design Week.</p>
@@ -56,13 +55,10 @@
     </article>
 
     <section class="related" aria-label="More work">
-      <div class="shell related-inner">
-        <div class="related-links">
-          <h2 class="related-label">Continue exploring</h2>
-          <a class="related-link" href="the-subtle-art-of-slowing-down.html">The Subtle Art of Slowing Down <span>Next story →</span></a>
-          <a class="related-link" href="projects.html">All Work <span>View archive →</span></a>
-          <a class="related-link" href="the-creative-lens.html">The Creative Lens <span>Read the newsletter →</span></a>
-        </div>
+      <div class="related-inner">
+        <p class="content-label">Next project</p>
+        <a class="next-project" href="the-subtle-art-of-slowing-down.html"><span>The Subtle Art of Slowing Down</span><span aria-hidden="true">→</span></a>
+        <a class="text-link" href="projects.html">All work</a>
       </div>
     </section>
   </main>
@@ -71,7 +67,7 @@
     <div class="shell footer-inner">
       <p class="footer-copy">© 2026 Mattia Giannattasio. All Rights Reserved.</p>
       <div class="footer-links"><a href="https://www.instagram.com/mattia_giannattasio/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@mattia_giannattasio/featured" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://giannattasiomattia.substack.com" target="_blank" rel="noopener noreferrer">Substack</a></div>
-      <a class="text-link" href="mailto:mattia.giannattasio@gmail.com">Work with me <span aria-hidden="true">→</span></a>
+      <a class="text-link" href="mailto:mattia.giannattasio@gmail.com">Email <span aria-hidden="true">↗</span></a>
     </div>
   </footer>
 </body>

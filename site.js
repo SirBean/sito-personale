@@ -40,9 +40,8 @@
 
   const revealTargets = [...document.querySelectorAll([
     '.page-intro', '.article-head', '.newsletter-hero', '.shop-intro',
-    '.reading-column > .content-section', '.about-portrait', '.article-body',
-    '.article-media', '.article-hero', '.article-video', '.archive-item',
-    '.related-inner', '.work-card', '.mailing-inner', '.engagements-grid'
+    '.reading-column > .content-section:first-child',
+    '.article-media', '.article-hero', '.article-video', '.work-card'
   ].join(','))].filter(element => element.getBoundingClientRect().height > 1);
 
   let observer;
