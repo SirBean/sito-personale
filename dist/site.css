@@ -472,3 +472,72 @@ main { min-height: calc(100svh - 160px); }
 }
 
 .article-deck a, .article-body a { text-decoration:underline; text-decoration-color:#0003; text-underline-offset:3px; }
+
+/* Mobile home: first name and changing photographs, surname on its own line. */
+@media (max-width: 900px) {
+  .home-page .home-hero {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    row-gap: 32px;
+    padding-top: 112px;
+    padding-bottom: 32px;
+  }
+  .home-page .hero-wordmark {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    text-align: left;
+    container-type: inline-size;
+  }
+  .home-page .hero-wordmark h1 {
+    display: grid;
+    width: 100%;
+    max-width: none;
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-items: center;
+    justify-content: start;
+    gap: .1em .14em;
+    font-size: clamp(42px, calc((100vw - 40px) * .19), 138px);
+    line-height: .9;
+    white-space: nowrap;
+  }
+  @supports (container-type: inline-size) {
+    .home-page .hero-wordmark h1 { font-size: clamp(42px, 19cqw, 138px); }
+  }
+  .home-page .hero-first-name {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 1.32em;
+    letter-spacing: -.075em;
+  }
+  .home-page .hero-last-name { grid-column: 1 / -1; grid-row: 2; }
+  .home-page .hero-reel {
+    --reel-height: .84em;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: start;
+    align-self: center;
+    max-width: 100%;
+  }
+  .home-page .hero-copy {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0;
+  }
+  .home-page .hero-role { align-self: flex-start; font-size: 12px; line-height: 18px; }
+  .home-page .hero-intro { max-width: 370px; font-size: 14px; line-height: 22px; }
+  .home-page .hero-actions {
+    width: auto;
+    justify-content: flex-start;
+    align-self: flex-start;
+    margin: 4px 0 0 -10px;
+  }
+  .home-page .hero-actions .button { font-size: 14px; line-height: 16px; }
+}
