@@ -12,7 +12,8 @@
     '/', '/about', '/projects', '/shop', '/the-creative-lens',
     '/meravigliosa-biblioteca', '/the-subtle-art-of-slowing-down',
     '/fondazione-magnani-rocca', '/how-i-see-colors', '/design-week-2025',
-    '/creative-direction-music-artist'
+    '/creative-direction-music-artist',
+    '/diana', '/villa-of-masterpieces', '/girl-of-the-night-garden', '/destiny-noah-baine', '/finding-your-own-path', '/time-and-each-other', '/language-of-wind', '/recco', '/candle-flame-wildfire', '/you-me', '/roncato', '/like-roots', '/liquid-buildings', '/fallin-noah-baine', '/upside-down', '/comacchio', '/dusk-to-night', '/mosaic-biennale', '/trains', '/language-of-light', '/slowing-things-down', '/moft-iphone-setup', '/amsterdam-nikon', '/silence-berlin', '/moft-static', '/polarpro-warp', '/ugmonk-analog', '/italian-garden', '/mymind', '/pocket-dispo', '/brick', '/suspended-daydream', '/moment', '/weapon-distraction', '/moft-24-hours'
   ]);
   const pagePath = url => {
     const path = url.pathname.replace(/\/+$/, '').replace(/\.html$/, '');
@@ -117,3 +118,11 @@
     if (event.matches) showAll();
   });
 })();
+
+// Original project publications load only when the visitor opens the embed.
+document.querySelectorAll('.project-embed').forEach(details => {
+  details.addEventListener('toggle', () => {
+    const frame = details.querySelector('iframe[data-project-embed]');
+    if (details.open && frame && !frame.hasAttribute('src')) frame.src = frame.dataset.projectEmbed;
+  });
+});
