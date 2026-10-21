@@ -541,3 +541,10 @@ main { min-height: calc(100svh - 160px); }
   }
   .home-page .hero-actions .button { font-size: 14px; line-height: 16px; }
 }
+
+/* Editorial audit: reuse archive and article components for clearer entry points. */
+.archive-section-title { margin:0 0 16px; color:var(--muted); font-size:12px; line-height:18px; font-weight:400; letter-spacing:0; }
+.article-watch { width:min(var(--reading), calc(100% - 48px)); margin:0 auto 32px; }
+.shop-study { max-width:520px; }
+.shop-study figcaption { margin-top:16px; color:var(--muted); font-size:12px; line-height:18px; }
+.shop-study figcaption a, .newsletter-details .inline-link { text-decoration:underline; text-decoration-color:#0003; text-underline-offset:3px; }
