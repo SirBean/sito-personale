@@ -452,6 +452,8 @@ main { min-height: calc(100svh - 160px); }
 /* Project publications: existing article rhythm, local artwork and discreet credits. */
 .project-film video { display:block; width:100%; height:auto; max-height:660px; object-fit:contain; background:#000; }
 .project-portrait { max-width:520px; }
+.project-cover { max-width:min(880px, var(--source-width, 880px)); }
+.project-cover.project-portrait { max-width:min(520px, var(--source-width, 520px)); }
 .project-cover img { width:100%; height:auto; max-height:none; object-fit:contain; }
 .project-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; align-items:start; }
 .project-gallery figure { margin:0; min-width:0; }
