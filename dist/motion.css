@@ -1,0 +1,244 @@
+/* ==========================================================================
+   motion.css — micro-motion layer for mattiagiannattasio.com
+   Load AFTER site.css and shop.css. Adds motion only: no layout, colour or
+   type changes. Concept: "focus pull" — things arrive by coming into focus,
+   the thing you point at is sharp, everything else softens.
+   Everything here is disabled by the existing prefers-reduced-motion rule
+   in site.css (animation/transition: none !important) plus the guards below.
+   ========================================================================== */
+
+:root {
+  --mg-ease: var(--ease-settle, cubic-bezier(.22, 1, .36, 1));
+  --mg-ease-out: cubic-bezier(.25, .1, .25, 1);
+  --mg-ui: 380ms;
+}
+
+/* --------------------------------------------------------------------------
+   01 · Hero intro: letters focus in, the reel opens like a shutter
+   -------------------------------------------------------------------------- */
+/* Set by the tiny <head> snippet so the name never flashes before the intro. */
+.mg-preintro .hero-wordmark h1, .mg-preintro .hero-copy { opacity: 0; }
+
+.mg-char { transition: opacity 700ms ease, filter 900ms var(--mg-ease); transition-delay: var(--mg-d, 0ms); }
+.mg-chars-wait .mg-char { opacity: 0; filter: blur(12px); }
+
+.mg-reel-wait .hero-reel { width: 0 !important; opacity: 0; }
+.mg-reel-wait .hero-reel img.is-active { scale: 1.14; }
+.mg-reel-opening .hero-reel { transition: width 1150ms var(--mg-ease), opacity 400ms ease !important; }
+.mg-reel-opening .hero-reel img {
+  transition: opacity .48s cubic-bezier(.4,0,.2,1), transform .8s var(--mg-ease), scale 1700ms var(--mg-ease);
+}
+
+.mg-copy-in .hero-copy > * {
+  transition: opacity 600ms ease, filter 800ms var(--mg-ease), translate 900ms var(--mg-ease);
+  transition-delay: var(--mg-d, 0ms);
+}
+.mg-copy-wait .hero-copy > * { opacity: 0; filter: blur(6px); translate: 0 8px; }
+
+/* Faster reel resizing while the visitor scrubs it with the cursor. */
+.hero-reel.mg-scrubbing { transition: width .42s var(--mg-ease) !important; }
+
+/* --------------------------------------------------------------------------
+   02 · Hero defocus on scroll (scroll-driven, no JS; ignored where unsupported)
+   -------------------------------------------------------------------------- */
+@supports (animation-timeline: view()) {
+  .home-hero { view-timeline: --mg-hero block; }
+  .hero-wordmark h1 {
+    animation: mg-defocus linear both;
+    animation-timeline: --mg-hero;
+    animation-range: exit 0% exit 90%;
+  }
+  @keyframes mg-defocus {
+    to { filter: blur(5px); opacity: .4; translate: 0 6vh; }
+  }
+
+  /* 03 · Reading progress hairline on project pages */
+  .project-page::before {
+    content: ""; position: fixed; inset: 0 0 auto; z-index: 60; height: 1px;
+    background: var(--ink); transform-origin: 0 50%; pointer-events: none;
+    animation: mg-progress linear both;
+    animation-timeline: scroll(root block);
+  }
+  @keyframes mg-progress { from { scale: 0 1; } to { scale: 1 1; } }
+}
+
+/* --------------------------------------------------------------------------
+   04 · Navigation: one outline that glides between links
+   -------------------------------------------------------------------------- */
+.mg-glide-host { position: relative; }
+.mg-glide {
+  position: absolute; top: 0; left: 0; pointer-events: none; z-index: -1;
+  border: 1px solid var(--line);
+  border-radius: calc(8px * var(--squircle-radius)); corner-shape: superellipse(2);
+  opacity: 0;
+  transition:
+    transform 520ms var(--mg-ease), width 520ms var(--mg-ease),
+    height 520ms var(--mg-ease), opacity 220ms ease;
+}
+.mg-glide.is-visible { opacity: 1; }
+.mg-glide.no-travel { transition: opacity 220ms ease; }
+/* The glide replaces the per-link outlines (hover and current page). */
+.mg-glide-on .header-links a::after,
+.mg-glide-on .site-nav a::after { opacity: 0 !important; }
+.mg-glide-on .header-links a:focus-visible::after,
+.mg-glide-on .site-nav a:focus-visible::after { opacity: 1 !important; }
+
+/* --------------------------------------------------------------------------
+   05 · Arrows: → nudges, ↗ flies out and a new one lands
+   -------------------------------------------------------------------------- */
+.mg-arrow { display: inline-block; transition: translate var(--mg-ui) var(--mg-ease); }
+.mg-arrow-ne {
+  position: relative; display: inline-block;
+  clip-path: inset(-.05em -.05em -.05em -.05em);
+}
+.mg-arrow-ne > span { display: inline-block; transition: translate 460ms var(--mg-ease); }
+.mg-arrow-ne > span + span { position: absolute; left: 0; top: 0; translate: -110% 110%; }
+
+@media (hover: hover) {
+  a:hover .mg-arrow, button:hover .mg-arrow { translate: 3px 0; }
+  .next-project:hover .mg-arrow { translate: 6px 0; }
+  a:hover .mg-arrow-ne > span:first-child { translate: 110% -110%; }
+  a:hover .mg-arrow-ne > span + span { translate: 0 0; }
+}
+
+/* --------------------------------------------------------------------------
+   06 · Controls feel physical when pressed
+   -------------------------------------------------------------------------- */
+:is(.text-link, .button, .primary-link, .menu-toggle, .mobile-work, .menu-close) {
+  transition: scale 160ms var(--mg-ease-out);
+}
+:is(.text-link, .button, .primary-link, .menu-toggle, .mobile-work, .menu-close):active { scale: .97; }
+
+/* --------------------------------------------------------------------------
+   07 · Hairlines draw themselves in, left to right
+   -------------------------------------------------------------------------- */
+.mg-line {
+  background-image: linear-gradient(var(--mg-lt, transparent), var(--mg-lt, transparent)),
+                    linear-gradient(var(--mg-lb, transparent), var(--mg-lb, transparent));
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  background-position: left top, left bottom;
+  background-size: 0% var(--mg-wt, 1px), 0% var(--mg-wb, 1px);
+  transition: background-size 1300ms var(--mg-ease) var(--mg-d, 0ms);
+}
+.mg-line.mg-line-t { border-top-color: transparent !important; }
+.mg-line.mg-line-b { border-bottom-color: transparent !important; }
+.mg-line.is-drawn { background-size: 100% var(--mg-wt, 1px), 100% var(--mg-wb, 1px); }
+
+/* --------------------------------------------------------------------------
+   08 · Lists and blocks rise into focus with a short stagger
+   -------------------------------------------------------------------------- */
+[data-mg="rise"] { opacity: 0; filter: blur(6px); translate: 0 10px; }
+[data-mg="rise"].is-in {
+  opacity: 1; filter: none; translate: 0 0;
+  transition: opacity 600ms ease, filter 800ms var(--mg-ease), translate 1000ms var(--mg-ease);
+  transition-delay: var(--mg-d, 0ms);
+}
+
+/* --------------------------------------------------------------------------
+   09 · Images: fade in when decoded, settle from a slight zoom
+   -------------------------------------------------------------------------- */
+.mg-img { transition: transform .56s var(--mg-ease), scale 1700ms var(--mg-ease), opacity 700ms ease; }
+.mg-img.is-waiting { opacity: 0; }
+.mg-img[data-mg-settle="pending"] { scale: 1.06; }
+.mg-img[data-mg-settle="done"] { scale: 1; }
+
+/* --------------------------------------------------------------------------
+   10 · Photographs develop: portrait and cyanotype prints
+   -------------------------------------------------------------------------- */
+[data-mg-develop] { transition: filter 2000ms var(--mg-ease-out) var(--mg-d, 0ms); }
+[data-mg-develop="pending"] { filter: brightness(1.6) contrast(.55) saturate(.15) blur(1.5px); }
+[data-mg-develop="done"] { filter: none; }
+
+/* --------------------------------------------------------------------------
+   11 · Prints: lift and tilt like paper on a table (shop)
+   -------------------------------------------------------------------------- */
+.print-sheet {
+  transition: transform 700ms var(--mg-ease), box-shadow 700ms var(--mg-ease),
+              filter 2000ms var(--mg-ease-out);
+  will-change: transform;
+}
+.pack-image.is-tilting .print-sheet {
+  transition: transform 140ms linear, box-shadow 400ms var(--mg-ease), filter 2000ms var(--mg-ease-out);
+  box-shadow: 0 2px 4px #00000012, 0 22px 48px #0000001f;
+}
+
+/* --------------------------------------------------------------------------
+   12 · Depth of field: hover one item, the rest softly defocus
+   -------------------------------------------------------------------------- */
+@media (hover: hover) {
+  .archive-item, .credit-row, .work-card, .related-link, .newsletter-details p {
+    transition: opacity 420ms ease, filter 520ms var(--mg-ease);
+  }
+  .archive:has(.archive-item:hover) .archive-item:not(:hover),
+  .work-grid:has(.work-card:hover) .work-card:not(:hover),
+  .work-features:has(.feature-item:hover) .feature-item:not(:hover),
+  :has(> .credit-row:hover) > .credit-row:not(:hover),
+  .newsletter-details:has(.inline-link:hover) p:not(:has(.inline-link:hover)) {
+    opacity: .42; filter: blur(1.2px);
+  }
+  /* The row in focus stays ink instead of turning grey. */
+  .archive:has(.archive-item:hover) .archive-item:hover .archive-title,
+  .work-features .feature-item:hover .archive-title { color: var(--ink); }
+}
+
+/* --------------------------------------------------------------------------
+   13 · Cursor label over project and print images
+   -------------------------------------------------------------------------- */
+.mg-cursor {
+  position: fixed; left: 0; top: 0; z-index: 120; pointer-events: none;
+  padding: 7px 10px; font: 500 12px/14px var(--sans); letter-spacing: -.01em; color: #000;
+  background: #ffffffc7; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 1px #0000000f, 0 1px 6px #0000000a;
+  border-radius: calc(8px * var(--squircle-radius)); corner-shape: superellipse(2);
+  opacity: 0; scale: .8; transform-origin: 0 0;
+  transition: opacity 220ms ease, scale 380ms var(--mg-ease);
+}
+.mg-cursor.is-visible { opacity: 1; scale: 1; }
+
+/* --------------------------------------------------------------------------
+   14 · Small details
+   -------------------------------------------------------------------------- */
+/* Footer links had no hover feedback: ink + a hairline that draws in. */
+.footer-links a { transition: color 200ms ease; }
+.footer-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+  background: currentColor; scale: 0 1; transform-origin: 100% 50%;
+  transition: scale 480ms var(--mg-ease);
+}
+@media (hover: hover) {
+  .footer-links a:hover { color: var(--ink); }
+  .footer-links a:hover::after { scale: 1 1; transform-origin: 0 50%; }
+}
+
+/* "First release" status dot breathes like a live indicator. */
+.shop-status::before { animation: mg-breathe 2.8s ease-in-out infinite; }
+@keyframes mg-breathe {
+  0% { box-shadow: 0 0 0 0 #66715b66; }
+  70%, 100% { box-shadow: 0 0 0 6px #66715b00; }
+}
+
+/* Mobile menu: links arrive one after another. */
+.mobile-menu[open] nav a { animation: mg-menu-item 560ms var(--mg-ease) backwards; }
+.mobile-menu[open] nav a:nth-child(1) { animation-delay: 60ms; }
+.mobile-menu[open] nav a:nth-child(2) { animation-delay: 100ms; }
+.mobile-menu[open] nav a:nth-child(3) { animation-delay: 140ms; }
+.mobile-menu[open] nav a:nth-child(4) { animation-delay: 180ms; }
+.mobile-menu[open] nav a:nth-child(5) { animation-delay: 220ms; }
+.mobile-menu[open] nav a:nth-child(6) { animation-delay: 260ms; }
+.mobile-menu[open] .mobile-menu-footer { animation: mg-menu-item 560ms var(--mg-ease) 300ms backwards; }
+@keyframes mg-menu-item { from { opacity: 0; filter: blur(6px); translate: 0 6px; } }
+
+/* --------------------------------------------------------------------------
+   Reduced motion: show everything in its final state.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mg-chars-wait .mg-char, .mg-copy-wait .hero-copy > *, [data-mg="rise"],
+  [data-mg-develop="pending"], .mg-img.is-waiting { opacity: 1 !important; filter: none !important; translate: none !important; }
+  .mg-reel-wait .hero-reel { width: calc(var(--reel-height) * var(--reel-ratio)) !important; opacity: 1; }
+  .mg-img[data-mg-settle] { scale: 1 !important; }
+  .mg-line { background-size: 100% var(--mg-wt, 1px), 100% var(--mg-wb, 1px) !important; }
+  .mg-cursor, .mg-glide { display: none; }
+  .mg-glide-on .header-links a[aria-current="page"]::after,
+  .mg-glide-on .site-nav a[aria-current="page"]::after { opacity: 1 !important; }
+}

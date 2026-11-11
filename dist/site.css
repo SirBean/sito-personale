@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Timeless Sans";
-  src: url("fonts/timeless-sans-variable.ttf") format("truetype");
+  src: url("fonts/timeless-sans-variable.woff2") format("woff2"),
+       url("fonts/timeless-sans-variable.ttf") format("truetype");
   font-style: normal;
   font-weight: 300 800;
   font-display: swap;
